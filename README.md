@@ -1,5 +1,10 @@
 PPE M2L Front-End Project
 -------------------------
+##Useful Links:
+- http://bts2b.slack.com (Slack)
+- https://trello.com/b/kFzZ0AB0/ppe-front (Trello Board)
+- https://www.codeschool.com/courses/shaping-up-with-angular-js (AngularJS Course)
+
 
 ## Dependencies
 - npm

@@ -21,8 +21,11 @@ PPE M2L Front-End Project
 ## Launching the local webserver
 
   Navigate to the cloned/unzipped folder.
-  npm start
   
+  
+  - npm start
+  - Open your browser on localhost:3000
+  - Enjoy
   
   
 >> More infos to come on the go.

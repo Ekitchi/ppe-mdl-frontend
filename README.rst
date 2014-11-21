@@ -4,12 +4,12 @@
 PPE M2L Front-End Project
 #########################
 
-Projet de PPE pour le BTS SIO 2015, en lien avec le projet 'PPE M2L Back-End Project <https://github.com/Erwhann-ouge/ppe-m2l-backend>'_.
+Projet de PPE pour le BTS SIO 2015, en lien avec le projet 'PPE M2L Back-End Project ``https://github.com/Erwhann-rouge/ppe-m2l-backend>`` .
 
 But du projet :
 ===============
 Réaliser le front-end d'un site web dans le contexte de la Maison des Ligues de Lorraine (MDL).
-Le projet est réalisé grâce à AngularJS, un framework MVW. <https://angularjs.org>
+Le projet est réalisé grâce à AngularJS, un framework MVW. ``https://angularjs.org``
 Il permettra de réaliser une interface utilisateur, communiquant avec une base de données via REST, d'afficher et de manipuler des informations relatives aux ligues de Lorainne.
 De manière plus générale, ce projet vise à réaliser une interface de gestion/consultation, tant sur le plan utilisateur qu'administrateur.
 
@@ -20,8 +20,8 @@ Dependencies:
 
 Installation:
 =============
-* Cloner le dépot : $> git clone https://github.com/Ekitchi/ppe-mdl-frontend
-* Copier le contenu dans le dossier qui contient les sources web dans votre plateforme de développement (généralement "htdocs").
+* Cloner le dépot : ``git clone https://github.com/Ekitchi/ppe-mdl-frontend``
+* Copier le contenu dans le dossier qui contient les sources web dans votre plateforme de développement, généralement ``htdocs``.
 
 
 Fonctionalités :

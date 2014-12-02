@@ -75,7 +75,7 @@
 	
 			<div class="form-group">
 				<div class="col-md-offset-3 col-md-9">	
-					<button type="submit" class="btn btn-default" ng-submit="ConfirmRegister()">S'enregistrer</button>
+					<input type="submit" class="btn btn-default" ng-click="registerForm.$valid && ConfirmRegister()" value="S'enregistrer"/>
 				</div>
 			</div>
 </body>

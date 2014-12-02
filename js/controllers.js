@@ -14,28 +14,25 @@ angular.module('mdl.controllers', [])
         */
         $scope.ConfirmRegister = function()
         {
-        	console.log("Informations qui seront rentrées dans la DB");
-        	console.log($scope.inscriptionCtrl.pseudo);
-        	console.log($scope.inscriptionCtrl.nom);
-        	console.log($scope.inscriptionCtrl.prenom);
-        	console.log($scope.inscriptionCtrl.email);
-        	console.log($scope.inscriptionCtrl.password);
-        	console.log($scope.inscriptionCtrl.passwordConfirm);
-        	console.log($scope.inscriptionCtrl.date);
-        	console.log($scope.inscriptionCtrl.telephone);
         	
-        	
-        	var mdp1 = $scope.inscriptionCtrl.password;
-        	var mdp2 = $scope.inscriptionCtrl.passwordConfirm;
-        	
-        	if (mdp1 === mdp2){
-        		console.log("Mot de passe: ok");
+        	if ($scope.inscriptionPassword == $scope.inscriptionPasswordConfirm && $scope.registerForm.$valid){
+        		console.log("Check: OK");
+        		
+        		console.log("Informations qui seront rentrées dans la DB:");
+        		console.log("Nom:", $scope.inscriptionName);
+        		console.log("Prénom:", $scope.inscriptionFirst_name);
+        		console.log("Email:", $scope.inscriptionMail);
+        		console.log("Mot de passe:", $scope.inscriptionPassword);
+        		console.log("Confirmation:", $scope.inscriptionPasswordConfirm);
+        		console.log("Date de naissance:", $scope.inscriptionDateofbirth);
+        		console.log("Téléphone:", $scope.inscriptionPhone);
         	}
         	else{
         		console.log("Mot de passe: ERROR");
-        		/*$scope.registerForm = $scope.registerForm.$invalid;*/
         		alert('Les mots de passe ne correspondent pas');
         	}
+        	
+        	
         	
         	
                /* if ($scope.RegisterIsValid == true) {

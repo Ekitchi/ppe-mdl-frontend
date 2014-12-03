@@ -12,11 +12,16 @@ angular.module('mdl.controllers', [])
         You will also need to create the other HTML Pages, with the inscription.html model.
         Good luck!
         */
-        $scope.ConfirmRegister = function()
-        {
+       
+       
+       
+       
+	$scope.ConfirmRegister = function()
+		{
         	
-        	if ($scope.inscriptionPassword == $scope.inscriptionPasswordConfirm && $scope.registerForm.$valid){
+			if ($scope.inscriptionPassword == $scope.inscriptionPasswordConfirm && $scope.registerForm.$valid){
         		console.log("Check: OK");
+        		console.log($scope.passwordMatches = $scope.password==$scope.passwordConfirm);
         		
         		console.log("Informations qui seront rentrées dans la DB:");
         		console.log("Nom:", $scope.inscriptionName);

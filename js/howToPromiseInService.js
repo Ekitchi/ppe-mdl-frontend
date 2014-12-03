@@ -42,6 +42,6 @@ return {
         return wrapped$httpPromise({
             method: 'GET',
             url: '/map/'
-        })
+        });
     },
 };

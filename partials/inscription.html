@@ -4,7 +4,7 @@
 	
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Inscription</title>
 </head>
 
 
@@ -15,62 +15,64 @@
 	<br/>
 
 		
-		<form class="form-horizontal" name="registerForm" ng-controller="InscriptionController as inscriptionCtrl" method="post">
+	<form class="form-horizontal" name="registerForm" ng-controller="InscriptionController as inscription" method="post">
 	
-			<div class="form-group">
-				<label class="col-md-1 control-label" for="name">Nom</label>
-				<div class="col-md-3">
-					<input id="name" type="text" class="form-control" name="name" ng-model="inscriptionName" required/>
-				</div>
+		<div class="form-group" ng-class="{'has-error': registerForm.name.$dirty && registerForm.name.$invalid, 'has-success': registerForm.name.$valid}">
+			<label class="col-md-1 control-label" for="name">Nom</label>
+			<div class="col-md-3">
+				<input id="name" type="text" class="form-control" name="name" ng-model="inscriptionName" required/>
+				<span class="error" ng-show="registerForm.name.$dirty && registerForm.name.$error.required">*Ce champ est obligatoire</span>
 			</div>
+		</div>
 	
-			<div class="form-group">
-				<label class="col-md-1 control-label" for="first_name">Prénom</label>
-				<div class="col-md-3">
-					<input id="first_name" type="text" class="form-control" name="first_name" ng-model="inscriptionFirst_name" required/>
-				</div>
+		<div class="form-group" ng-class="{'has-error': registerForm.first_name.$dirty && registerForm.first_name.$invalid, 'has-success': registerForm.first_name.$valid}">
+			<label class="col-md-1 control-label" for="first_name">Prénom</label>
+			<div class="col-md-3">
+				<input id="first_name" type="text" class="form-control" name="first_name" ng-model="inscriptionFirst_name" required/>
 			</div>
+		</div>
 	
-			<div class="form-group">
-				<label class="col-md-1 control-label" for="mail">Email</label>
-				<div class="col-md-3">
-					<input id="mail" type="email" class="form-control" name="mail" ng-model="inscriptionMail" required/>
-				</div>
+		<div class="form-group" ng-class="{'has-error': registerForm.mail.$dirty && registerForm.mail.$invalid, 'has-success': registerForm.mail.$valid}">
+			<label class="col-md-1 control-label" for="mail">Email</label>
+			<div class="col-md-3">
+				<input id="mail" type="email" class="form-control" name="mail" ng-model="inscriptionMail" required/>
 			</div>
+		</div>
 	
-			<div class="form-group">
-				<label class="col-md-1 control-label" for="password">Mot de passe</label>
-				<div class="col-md-3">
-					<input id="password" type="password" class="form-control" name="password" ng-model="inscriptionPassword" required/>
-				</div>
+		<div class="form-group" ng-class="{'has-error': registerForm.password.$dirty && registerForm.password.$invalid, 'has-success': registerForm.password.$valid}">
+			<label class="col-md-1 control-label" for="password">Mot de passe</label>
+			<div class="col-md-3">
+				<input id="password" type="password" class="form-control" name="password" ng-model="inscriptionPassword" required/>
 			</div>
+		</div>
 	
-			<div class="form-group">
-				<label class="col-md-1 control-label" for="passwordConfirm">Confirmer le mot de passe</label>
-				<div class="col-md-3">
-					<input id="passwordConfirm" type="password" class="form-control" name="passwordConfirm" ng-model="inscriptionPasswordConfirm" required/>
-				</div>
+		<div class="form-group" ng-class="{'has-error': registerForm.passwordConfirm.$dirty && registerForm.passwordConfirm.$invalid, 'has-success': registerForm.passwordConfirm.$valid}">
+			<label class="col-md-1 control-label" for="passwordConfirm">Confirmer le mot de passe</label>
+			<div class="col-md-3">
+				<input id="passwordConfirm" type="password" class="form-control" name="passwordConfirm" ng-model="inscriptionPasswordConfirm" required/>
 			</div>
+		</div>
 	
-			<div class="form-group">
-				<label class="col-md-1 control-label" for="dateofbirth">Date de naissance</label>
-				<div class="col-md-3">
-					<input id="dateofbirth" type="date" class="form-control" name="dateofbirth" ng-model="inscriptionDateofbirth" required/>
-				</div>
+		<div class="form-group" ng-class="{'has-error': registerForm.dateofbirth.$dirty && registerForm.dateofbirth.$invalid, 'has-success': registerForm.dateofbirth.$valid}">
+			<label class="col-md-1 control-label" for="dateofbirth">Date de naissance</label>
+			<div class="col-md-3">
+				<input id="dateofbirth" type="date" class="form-control" name="dateofbirth" ng-model="inscriptionDateofbirth" required/>
 			</div>
+		</div>
 			
-			<div class="form-group">
-				<label class="col-md-1 control-label" for="phone">Téléphone</label>
-				<div class="col-md-3">
-					<input id="phone" type="text" class="form-control" name="phone" ng-model="inscriptionPhone" required/>
-				</div>
+		<div class="form-group" ng-class="{'has-error': registerForm.phone.$dirty && registerForm.phone.$invalid, 'has-success': registerForm.phone.$valid}">
+			<label class="col-md-1 control-label" for="phone">Téléphone</label>
+			<div class="col-md-3">
+				<input id="phone" type="text" class="form-control" name="phone" ng-model="inscriptionPhone" required/>
 			</div>
+		</div>
 	
-			<div class="form-group">
-				<div class="col-md-offset-3 col-md-9">	
-					<button type="submit" class="btn btn-default" ng-click="registerForm.$valid && ConfirmRegister()">S'enregistrer</button>
-				</div>
+		<div class="form-group">
+			<div class="col-md-offset-3 col-md-9">	
+				<button type="submit" class="btn btn-default" ng-click="registerForm.$valid && ConfirmRegister()">S'enregistrer</button>
 			</div>
+		</div>
+	</form>
 </body>
 			
 </html>

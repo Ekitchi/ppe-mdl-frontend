@@ -1,7 +1,7 @@
 angular.module('mdl.controllers', [])
 
 .controller('InscriptionController', ['$scope', '$routeParams',
-    function($scope, $routeParams, $window) {
+	function($scope, $routeParams, $window) {
         /*
         This is the Register controller.
         It's the root partial displayed at the start of the application, for the exercise purpose.
@@ -12,10 +12,6 @@ angular.module('mdl.controllers', [])
         You will also need to create the other HTML Pages, with the inscription.html model.
         Good luck!
         */
-       
-       
-       
-       
 	$scope.ConfirmRegister = function()
 		{
         	
@@ -36,10 +32,6 @@ angular.module('mdl.controllers', [])
         		console.log("Mot de passe: ERROR");
         		alert('Les mots de passe ne correspondent pas');
         	}
-        	
-        	
-        	
-        	
                /* if ($scope.RegisterIsValid == true) {
                     $location.path('/ConfirmedRegister');
                 }
@@ -47,6 +39,25 @@ angular.module('mdl.controllers', [])
                     console.log("Error in the inscription. Please review your form");
                 }*/
         };
+   }
+])
 
-    }
-    ]);
+
+
+
+.controller('LeagueController', ['$scope', '$routeParams',
+	function($scope, $routeParams, $window) {
+		
+		$scope.leaguename = "LIGUE DES GROSSES BOULES";
+		$scope.leagueprez = "M. Grossesboules";
+		$scope.leaguemail = "grosses@boules.fr";
+		$scope.leaguephonenumber = "6666666666666";
+		$scope.leaguedesc = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		
+		
+		
+		
+		
+			
+	}
+]);

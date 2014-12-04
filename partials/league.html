@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>League</title>
+    <link href="css/league.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+
+<body ng-controller="LeagueController as league">
+	
+	<div id="leaguewrapper">
+		<img src="http://placehold.it/300x250" />
+		<span id="leaguename"><h1>{{leaguename}}</h1></span>
+
+		
+		<div id="leaguedesc">
+			<p>{{leaguedesc}}</p>
+		</div>
+		
+		<table class="table table-responsive table-hover" id="leagueinfos">
+			<tr>
+				<th>Président de la ligue:</th>
+				<td>{{leagueprez}}</td>
+			</tr>
+			<tr>
+				<th>Email:</th>
+				<td>{{leaguemail}}</td>
+			</tr>
+			<tr>
+				<th>Numéro de téléphone:</th>
+				<td>{{leaguephonenumber}}</td>
+			</tr>
+		</table>
+	</div>
+		
+	
+	
+</body>
+</html>

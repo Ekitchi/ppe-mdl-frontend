@@ -14,6 +14,11 @@ config(['$routeProvider',
             templateUrl: 'partials/confirmedInscription.html',
             controller: 'ConfirmedInscription'
         });
+        
+        $routeProvider.when('/League/:id', {
+            templateUrl: 'partials/league.html',
+            controller: 'LeagueController'
+        });
 
     }
 ]);

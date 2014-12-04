@@ -38,10 +38,31 @@ return {
             url: '/leagues/'
         });
     },
+
+    getLeague: function(leagueId) {
+        return wrapped$httpPromise({
+            method: 'GET',
+            url: '/league/' + leagueId + '/'
+        });
+    }
     getMap: function() {
         return wrapped$httpPromise({
             method: 'GET',
             url: '/map/'
         });
     },
+
+
+    postUser: function(firstNameValue, lastNameValue, emailValue, passwordValue) {
+        return wrapped$httpPromise({
+            method: 'POST',
+            url: '/user/',
+            data: {
+                name: lastNameValue,
+                firstName: firstNameValue,
+                email: emailValue,
+                password: passwordValue
+            }
+        });
+    }
 };

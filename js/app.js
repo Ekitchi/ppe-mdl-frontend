@@ -9,13 +9,8 @@ config(['$routeProvider',
                 isFree: true
             }
         });
-
-        $routeProvider.when('/ConfirmedRegister', {
-            templateUrl: 'partials/confirmedInscription.html',
-            controller: 'ConfirmedInscription'
-        });
         
-        $routeProvider.when('/League/:id', {
+        $routeProvider.when('/league/:id', {
             templateUrl: 'partials/league.html',
             controller: 'LeagueController'
         });

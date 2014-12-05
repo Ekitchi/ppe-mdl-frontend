@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html>
-	
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>League</title>
-    <link href="css/league.css" rel="stylesheet" type="text/css" />
-</head>
 
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>League</title>
+		<link href="css/league.css" rel="stylesheet" type="text/css" />
+	</head>
 
+	<body ng-controller="LeagueController as league">
 
-<body ng-controller="LeagueController as league">
-	
-	<div id="leaguewrapper">
-		<img src="http://placehold.it/300x250" />
-		<span id="leaguename"><h1>{{leaguename}}</h1></span>
+		<div id="leaguewrapper">
+			<img src="http://placehold.it/300x250" />
+			<span id="leaguename"><h1>{{leaguename}}</h1></span>
 
-		
-		<div id="leaguedesc">
-			<p>{{leaguedesc}}</p>
+			<div id="leaguedesc">
+				<p>
+					{{leaguedesc}}
+				</p>
+			</div>
+
+			<table class="table table-responsive table-hover" id="leagueinfos">
+				<tr>
+					<th>Président de la ligue:</th>
+					<td>{{leagueprez}}</td>
+				</tr>
+				<tr>
+					<th>Email:</th>
+					<td>{{leaguemail}}</td>
+				</tr>
+				<tr>
+					<th>Numéro de téléphone:</th>
+					<td>{{leaguephonenumber}}</td>
+				</tr>
+			</table>
 		</div>
-		
-		<table class="table table-responsive table-hover" id="leagueinfos">
-			<tr>
-				<th>Président de la ligue:</th>
-				<td>{{leagueprez}}</td>
-			</tr>
-			<tr>
-				<th>Email:</th>
-				<td>{{leaguemail}}</td>
-			</tr>
-			<tr>
-				<th>Numéro de téléphone:</th>
-				<td>{{leaguephonenumber}}</td>
-			</tr>
-		</table>
-	</div>
-		
-	
-	
-</body>
+
+		<br/>
+		<br/>
+
+		<!--<div class="container">
+			<div class="carousel">
+				<div class="item">
+					<img src="css/images/test1.jpg" width="100%"/>
+					<div class="carousel-caption">
+						<h1>TEST</h1>
+						<p class="lead">Lorem Impsum</p>
+						<a href="#" class="btn btn-primary">COUCOU</a>
+					</div>
+				</div>
+				<div class="item">
+					<img src="css/images/test2.jpg" width="100%"/>
+				</div>
+				<div class="item">
+					<img src="css/images/test3.jpg" width="100%"/>
+				</div>
+				<div class="item">
+					<img src="css/images/test2.jpg" width="100%"/>
+				</div>
+			</div>
+		</div>-->
+
+	</body>
 </html>

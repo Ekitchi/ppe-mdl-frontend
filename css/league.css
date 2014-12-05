@@ -7,7 +7,6 @@
  */ 
     
 #leaguewrapper {
-	border:1px solid black;
 	height: 300px;
 	width: 100%;
 }
@@ -18,7 +17,6 @@
 }
 
 #leaguename {
-	border:1px solid black;
 	height: 25%;
 	width: 75%;
 	float:right;
@@ -27,7 +25,6 @@
 }
 
 #leagueinfos {
-	border:1px solid black;
 	width: 32%;
 	height: 62%;
 	float: right;
@@ -39,7 +36,6 @@
 }
 
 #leaguedesc {
-	border:1px solid black;
 	padding: 0.4%;
 	width: 42%;
 	float:right;

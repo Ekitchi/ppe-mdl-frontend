@@ -44,9 +44,21 @@ angular.module('mdl.controllers', [])
 
 
 
+.controller('ConnexionController', ['$scope', '$routeParams',
+	function($scope, $routeParams, $window) {
+		
+		
+		
+		
+	}
+])
+
+
+
 
 .controller('LeagueController', ['$scope', '$routeParams',
 	function($scope, $routeParams, $window) {
+		
 		
 		$scope.leaguename = "LIGUE DES GROSSES BOULES";
 		$scope.leagueprez = "M. Grossesboules";
@@ -54,7 +66,11 @@ angular.module('mdl.controllers', [])
 		$scope.leaguephonenumber = "6666666666666";
 		$scope.leaguedesc = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 		
-		
+		$scope.leagueimages = [
+				"css/images/test1.jpg",
+				"css/images/test2.jpg",
+				"css/images/test3.jpg"
+			];
 		
 		
 		

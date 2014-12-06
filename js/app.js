@@ -10,6 +10,11 @@ config(['$routeProvider',
             }
         });
         
+        $routeProvider.when('/connexion', {
+            templateUrl: 'partials/connexion.html',
+            controller: 'ConnexionController'
+        });
+        
         $routeProvider.when('/league/:id', {
             templateUrl: 'partials/league.html',
             controller: 'LeagueController'

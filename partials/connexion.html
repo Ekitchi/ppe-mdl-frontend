@@ -5,8 +5,30 @@
 		<title>connexion</title>
 	</head>
 
-	<body>
+	<body ng-controller="ConnexionController as connexion">
 		<h1 class="page-header">Connexion</h1>
-		
+		<br/>
+		<br/>
+
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-md-1 control-label" for="mail">Email:</label>
+				<div class="col-md-2">
+					<input type="text" name="mail" id="mail" ng-model="mail" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-1 control-label" for="password">Mot de passe:</label>
+				<div class="col-md-2">
+					<input type="password" name="password" id="password" ng-model="password" class="form-control"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-1">
+					<button type="submit" class="btn btn-default">Se connecter</button>
+				</div>
+			</div>
+		</form>
+
 	</body>
 </html>

@@ -1,5 +1,5 @@
-angular.module('MDL', ['ngRoute', 'mdl.controllers', 'ui.bootstrap']).
-config(['$routeProvider',
+angular.module('MDL', ['ngRoute', 'mdl.controllers', 'ui.bootstrap'])
+.config(['$routeProvider',
     function($routeProvider) {
 
         $routeProvider.when('/', {

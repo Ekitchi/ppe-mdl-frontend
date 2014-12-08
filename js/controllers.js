@@ -1,7 +1,7 @@
 angular.module('mdl.controllers', [])
 
-.controller('InscriptionController', ['$scope', '$routeParams',
-	function($scope, $routeParams, $window) {
+.controller('InscriptionController', ['$scope', '$routeParams', '$location',
+	function($scope, $routeParams, $location, $window) {
         /*
         This is the Register controller.
         It's the root partial displayed at the start of the application, for the exercise purpose.
@@ -15,30 +15,26 @@ angular.module('mdl.controllers', [])
 	$scope.ConfirmRegister = function()
 		{
         	
-			if ($scope.inscriptionPassword == $scope.inscriptionPasswordConfirm && $scope.registerForm.$valid){
+			if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
         		console.log("Check: OK");
-        		console.log($scope.passwordMatches = $scope.password==$scope.passwordConfirm);
         		
         		console.log("Informations qui seront rentrées dans la DB:");
         		console.log("Nom:", $scope.inscriptionName);
         		console.log("Prénom:", $scope.inscriptionFirst_name);
         		console.log("Email:", $scope.inscriptionMail);
-        		console.log("Mot de passe:", $scope.inscriptionPassword);
-        		console.log("Confirmation:", $scope.inscriptionPasswordConfirm);
+        		console.log("Mot de passe:", $scope.registerForm.password);
+        		console.log("Confirmation:", $scope.registerForm.passwordConfirm);
         		console.log("Date de naissance:", $scope.inscriptionDateofbirth);
         		console.log("Téléphone:", $scope.inscriptionPhone);
+        		$location.path('/connexion');
         	}
         	else{
         		console.log("Mot de passe: ERROR");
+        		console.log("Mot de passe1:", $scope.inscriptionPassword);
+        		console.log("Mot de passe2:", $scope.inscriptionPasswordConfirm);
         		alert('Les mots de passe ne correspondent pas');
         	}
-               /* if ($scope.RegisterIsValid == true) {
-                    $location.path('/ConfirmedRegister');
-                }
-                else {
-                    console.log("Error in the inscription. Please review your form");
-                }*/
-        };
+       };
    }
 ])
 
@@ -77,4 +73,29 @@ angular.module('mdl.controllers', [])
 		
 			
 	}
-]);
+])
+
+
+.directive('passwordMatch', [function () {
+    return {
+        restrict: 'A',
+        scope:true,
+        require: 'ngModel',
+        link: function (scope, elem, attrs, control) {
+            var check = function () {
+ 
+                //Récupérer le mot de passe de la confirmation
+                var e1 = scope.$eval(attrs.ngModel); 
+ 
+                //Récupérer le mot de passe 
+                var e2 = scope.$eval(attrs.passwordMatch).$viewValue;
+                return e1 == e2;
+            };
+            scope.$watch(check, function (isValid) {
+ 
+                //Défini si le champ est valide ou non
+                control.$setValidity("passwordMatch", isValid);
+            });
+        }
+    };
+}]);

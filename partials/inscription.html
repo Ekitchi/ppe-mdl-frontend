@@ -53,8 +53,9 @@
 		<div class="form-group" ng-class="{'has-error': registerForm.passwordConfirm.$dirty && registerForm.passwordConfirm.$invalid, 'has-success': registerForm.passwordConfirm.$valid}">
 			<label class="col-md-1 control-label" for="passwordConfirm">Confirmer le mot de passe</label>
 			<div class="col-md-3">
-				<input id="passwordConfirm" type="password" class="form-control" name="passwordConfirm" ng-model="inscriptionPasswordConfirm" ng-minlength="4" required/>
-				<span class="text-danger" ng-show="registerForm.passwordConfirm.$dirty && registerForm.passwordConfirm.$error.required">*Ce champ est obligatoire</span>
+				<input id="passwordConfirm" type="password" class="form-control" name="passwordConfirm" password-match="registerForm.password" ng-model="inscriptionPasswordConfirm" required/>
+				<span class="text-danger" ng-show="registerForm.passwordConfirm.$dirty && registerForm.passwordConfirm.$error.required">*Ce champ est obligatoire<br/></span>
+				<span class="text-danger" ng-show="registerForm.passwordConfirm.$dirty && registerForm.passwordConfirm.$error.passwordMatch">*Les mots de passe ne correspondent pas</span>
 			</div>
 		</div>
 	

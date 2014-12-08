@@ -3649,7 +3649,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 15px 25px;
+  color: #777;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -3833,7 +3834,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 60px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -3945,7 +3946,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   height: 50px;
   padding: 15px 15px;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 29px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -3995,7 +3996,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px;
+  line-height: 29px;
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {

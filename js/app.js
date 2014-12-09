@@ -19,6 +19,11 @@ angular.module('MDL', ['ngRoute', 'mdl.controllers', 'ui.bootstrap'])
             templateUrl: 'partials/league.html',
             controller: 'LeagueController'
         });
+        
+        $routeProvider.when('/league', {
+        	templateUrl: 'partials/add_league.html',
+        	controller: 'AddLeagueController'
+        });
 
     }
 ]);

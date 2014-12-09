@@ -67,11 +67,16 @@ angular.module('mdl.controllers', [])
 				"css/images/test2.jpg",
 				"css/images/test3.jpg"
 			];
+	}
+])
+
+
+
+.controller('AddLeagueController', ['$scope', '$routeParams', '$location',
+	function($scope, $routeParams, $location, $window) {
 		
 		
 		
-		
-			
 	}
 ])
 

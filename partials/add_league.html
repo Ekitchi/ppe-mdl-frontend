@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Ajouter une Ligue</title>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	</head>
+
+	<body>
+
+		<h1 class="page-header">Ajouter une ligue</h1>
+		<br/>
+		<br/>
+
+		<form class="form-horizontal" name="addleagueForm" ng-controller="AddLeagueController as addleague" method="post">
+
+			<div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.name.$dirty && addleagueForm.name.$invalid, 'has-success': addleagueForm.name.$valid}">
+				<label class="col-md-2 control-label" for="name">Nom de la ligue</label>
+				<div class="col-md-2">
+					<input id="name" type="text" class="form-control" name="name" ng-model="addleagueName" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addleagueForm.name.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addleagueForm.name.$dirty && addleagueForm.name.$invalid"></span>
+					<span class="text-danger" ng-show="addleagueForm.name.$dirty && addleagueForm.name.$error.required">*Ce champ est obligatoire</span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="description">Description</label>
+				<div class="col-md-4">
+					<textarea id="description" class="form-control" name="description" ng-model="addleagueDescription" rows="8" required></textarea>
+				</div>
+			</div>
+
+		</form>
+
+	</body>
+</html>

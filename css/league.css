@@ -1,0 +1,44 @@
+/* LEAGUE */    
+/*
+ * 
+ * INFORMATIONS DE LA LIGUE
+ * 
+ * 
+ */ 
+    
+#leaguewrapper {
+	height: 300px;
+	width: 100%;
+}
+
+#leaguewrapper img {
+	float: left;
+	margin: 1.4%;
+}
+
+#leaguename {
+	height: 25%;
+	width: 75%;
+	float:right;
+	margin-bottom:1%;
+	text-align:center;
+}
+
+#leagueinfos {
+	width: 32%;
+	height: 62%;
+	float: right;
+	margin-right: 1%;
+}
+
+#leagueinfos th, #leagueinfos td {
+	vertical-align:middle;
+}
+
+#leaguedesc {
+	padding: 0.4%;
+	width: 42%;
+	float:right;
+	height: 62%;
+	text-align:justify;
+}

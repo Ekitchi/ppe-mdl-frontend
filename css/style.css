@@ -63,8 +63,9 @@ fieldset.login_form {
   }
 }
 .fa {
+  /* Annule l'affichage des span de la sidebar
   margin-left: 50%;
-  margin-right: 50%;
+  margin-right: 50%;*/
 }
 .pagination {
   text-align: center;

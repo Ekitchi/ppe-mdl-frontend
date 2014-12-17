@@ -5,12 +5,12 @@
 		<title>connexion</title>
 	</head>
 
-	<body ng-controller="ConnexionController as connexion">
+	<body>
 		<h1 class="page-header">Connexion</h1>
 		<br/>
 		<br/>
 
-		<form class="form-horizontal">
+		<form class="form-horizontal" ng-controller="ConnexionController" ng-submit="submit()">
 			<div class="form-group">
 				<label class="col-md-1 control-label" for="mail">Email:</label>
 				<div class="col-md-2">

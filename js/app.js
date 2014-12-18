@@ -38,6 +38,11 @@ angular.module('MDL', ['ngRoute', 'mdl.controllers', 'ui.bootstrap'])
             	templateUrl: 'partials/profil.html',
             	controller: 'ProfilController'
             });
+            
+            $routeProvider.when('/user/:id', {
+            	templateUrl: 'partials/user.html',
+            	controller: 'UserController'
+            });
 
         }
     ]);

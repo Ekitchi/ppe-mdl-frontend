@@ -119,7 +119,7 @@ angular.module('mdl.controllers', [])
 				'Nom': 'Ligue des Péripatéticiennes',
 				'President': 'Madame Prostipute',
 				'Email': 'partouze@interraciale.fr',
-				'Telephone': '06m112e62r71d8l74e'
+				'Telephone': '06m112e62r71d8174e'
 			}
 		];
 		
@@ -137,6 +137,19 @@ angular.module('mdl.controllers', [])
 		$scope.profilMail = "Emailde@lutisateur";
 		$scope.profilDateofbirth = "66/66/6666";
 		$scope.profilPhone = "0623381821";
+	}
+])
+
+
+.controller('UserController', ['$scope', '$routeParams',
+	function($scope, $routeParams, $window) {
+		
+		$scope.username = "Boule";
+		$scope.userfirstname = "LaGrosse";
+		$scope.usermail = "lagrosse@boule.fr";
+		$scope.userdateofbirth = "12/10/1293";
+		
+		
 	}
 ])
 

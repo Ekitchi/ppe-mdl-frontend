@@ -60,4 +60,18 @@
 #listleague th, #listleague td {
 	padding: 3%;
 }
- */
+ 
+ 
+ /*
+  * 
+  * 
+  * 
+  * Page de profil d'un user
+  * 
+  * 
+  * 
+  */
+ 
+#userinfos th, #userinfos td {
+	padding: 3%;
+}

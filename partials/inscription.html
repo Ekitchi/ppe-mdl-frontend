@@ -66,6 +66,7 @@
 						<br/>
 					</span>
 					<span class="text-danger" ng-show="registerForm.passwordConfirm.$dirty && registerForm.passwordConfirm.$error.passwordMatch">*Les mots de passes ne correspondent pas</span>
+					<span class="text-success" ng-show="registerForm.passwordConfirm.$valid">Les mots de passes correspondent</span>
 				</div>
 			</div>
 

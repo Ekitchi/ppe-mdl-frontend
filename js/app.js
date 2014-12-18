@@ -33,6 +33,11 @@ angular.module('MDL', ['ngRoute', 'mdl.controllers', 'ui.bootstrap'])
             	templateUrl: 'partials/list_leagues.html',
             	controller: 'ListLeaguesController'
             });
+            
+            $routeProvider.when('/profil', {
+            	templateUrl: 'partials/profil.html',
+            	controller: 'ProfilController'
+            });
 
         }
     ]);

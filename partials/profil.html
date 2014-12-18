@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>profil</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<h1 class="page-header">Mon profil</h1>
+		<br/>
+		<br/>
+
+		<form class="form-horizontal" name="profilForm" ng-controller="ProfilController" method="post">
+
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.name.$dirty && profilForm.name.$invalid, 'has-success': profilForm.name.$dirty && profilForm.name.$valid}">
+				<label class="col-md-1 control-label" for="name">Nom</label>
+				<div class="col-md-2">
+					<input id="name" type="text" class="form-control" name="name" ng-model="profilName" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.name.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.name.$invalid"></span>
+					<span class="text-danger" ng-show="profilForm.name.$dirty && profilForm.name.$error.required">*Ce champ est obligatoire</span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.first_name.$dirty && profilForm.first_name.$invalid, 'has-success': profilForm.name.$dirty && profilForm.first_name.$valid}">
+				<label class="col-md-1 control-label" for="first_name">Prénom</label>
+				<div class="col-md-2">
+					<input id="first_name" type="text" class="form-control" name="first_name" ng-model="profilFirst_name" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.first_name.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.first_name.$dirty && profilForm.first_name.$invalid"></span>
+					<span class="text-danger" ng-show="profilForm.first_name.$dirty && profilForm.first_name.$error.required">*Ce champ est obligatoire</span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.mail.$dirty && profilForm.mail.$invalid, 'has-success': profilForm.name.$dirty && profilForm.mail.$valid}">
+				<label class="col-md-1 control-label" for="mail">Email</label>
+				<div class="col-md-2">
+					<input id="mail" type="email" class="form-control" name="mail" ng-model="profilMail" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.mail.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.mail.$dirty && profilForm.mail.$invalid"></span>
+					<span class="text-danger" ng-show="profilForm.mail.$dirty && profilForm.mail.$error.required">*Ce champ est obligatoire</span>
+					<span class="text-danger" ng-show="profilForm.mail.$dirty && profilForm.mail.$error.email">*L'email n'est pas valide</span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$invalid, 'has-success': profilForm.name.$dirty && profilForm.dateofbirth.$valid}">
+				<label class="col-md-1 control-label" for="dateofbirth">Date de naissance</label>
+				<div class="col-md-2">
+					<input id="dateofbirth" type="date" class="form-control" name="dateofbirth" ng-model="profilDateofbirth" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.dateofbirth.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$invalid"></span>
+					<span class="text-danger" ng-show="profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$error.required">*Ce champ est obligatoire</span>
+					<span class="text-danger" ng-show="profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$error.date">*Le format de la date n'est pas valide</span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.phone.$dirty && profilForm.phone.$invalid, 'has-success': profilForm.name.$dirty && profilForm.phone.$valid}">
+				<label class="col-md-1 control-label" for="phone">Téléphone</label>
+				<div class="col-md-2">
+					<input id="phone" type="text" class="form-control" name="phone" ng-model="profilPhone" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.phone.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.phone.$dirty && profilForm.phone.$invalid"></span>
+					<span class="text-danger" ng-show="profilForm.phone.$dirty && profilForm.phone.$error.required">*Ce champ est obligatoire</span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="checkbox col-md-offset-1 col-md-9">
+					<label>
+					<input id="changePassword" type="checkbox" name="changePassword" ng-model="changePassword" />
+					Modifier le mot de passe
+					</label>
+				</div>
+			</div>
+			
+			<div ng-show="changePassword">
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.oldPassword.$dirty && profilForm.oldPassword.$invalid, 'has-success': profilForm.oldPassword.$dirty && profilForm.oldPassword.$valid}">
+				<label class="col-md-1 control-label" for="oldPassword">Ancien mot de passe</label>
+				<div class="col-md-2">
+					<input id="oldPassword" type="password" class="form-control" name="oldPassword" ng-model="profilOldPassword"/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show=" profilForm.oldPassword.$dirty && profilForm.oldPassword.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.oldPassword.$dirty && profilForm.oldPassword.$invalid"></span>
+				</div>
+			</div>	
+			
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.password.$dirty && profilForm.password.$invalid, 'has-success': profilForm.password.$valid}">
+				<label class="col-md-1 control-label" for="password">Nouveau mot de passe</label>
+				<div class="col-md-2">
+					<input id="password" type="password" class="form-control" name="password" ng-model="profilPassword" ng-minlength="4" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.password.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.password.$dirty && profilForm.password.$invalid"></span>
+					<span class="text-danger" ng-show="profilForm.password.$dirty && profilForm.password.$error.required">*Ce champ est obligatoire</span>
+					<span class="text-danger" ng-show="profilForm.password.$dirty && profilForm.password.$error.minlength">*Le mot de passe est trop court</span>
+				</div>
+			</div>
+
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.passwordConfirm.$dirty && profilForm.passwordConfirm.$invalid, 'has-success': profilForm.passwordConfirm.$valid}">
+				<label class="col-md-1 control-label" for="passwordConfirm">Confirmer le mot de passe</label>
+				<div class="col-md-2">
+					<input id="passwordConfirm" type="password" class="form-control" name="passwordConfirm" password-match="profilForm.password" ng-model="profilPasswordConfirm" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.passwordConfirm.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.passwordConfirm.$dirty && profilForm.passwordConfirm.$invalid"></span>
+					<span class="text-danger" ng-show="profilForm.passwordConfirm.$dirty && profilForm.passwordConfirm.$error.required">*Ce champ est obligatoire
+						<br/>
+					</span>
+					<span class="text-danger" ng-show="profilForm.passwordConfirm.$dirty && profilForm.passwordConfirm.$error.passwordMatch">*Les mots de passes ne correspondent pas</span>
+					<span class="text-success" ng-show="profilForm.passwordConfirm.$valid">Les mots de passes correspondent</span>
+				</div>
+			</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-9">
+					<button type="submit" class="btn btn-default" ng-click="profilForm.$valid && ">
+						Sauvegarder
+					</button>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

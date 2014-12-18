@@ -129,6 +129,19 @@ angular.module('mdl.controllers', [])
 
 
 
+.controller('ProfilController', ['$scope', '$routeParams',
+	function($scope, $routeParams, $window) {
+		
+		$scope.profilName = "Nom de l'utilisateur";
+		$scope.profilFirst_name = "Prénom de l'utilisateur";
+		$scope.profilMail = "Emailde@lutisateur";
+		$scope.profilDateofbirth = "66/66/6666";
+		$scope.profilPhone = "0623381821";
+	}
+])
+
+
+
 .directive('passwordMatch', [function () {
     return {
         restrict: 'A',

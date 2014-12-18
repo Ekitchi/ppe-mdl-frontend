@@ -42,3 +42,22 @@
 	height: 62%;
 	text-align:justify;
 }
+
+
+/*
+ * 
+ * 
+ * LISTE DES LIGES
+ * 
+ * 
+ * 
+ */
+
+#listleague {
+	width: 50%;
+}
+
+#listleague th, #listleague td {
+	padding: 3%;
+}
+ */

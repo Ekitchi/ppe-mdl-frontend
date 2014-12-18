@@ -24,43 +24,43 @@
 				</div>
 			</div>
 
-			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.first_name.$dirty && profilForm.first_name.$invalid, 'has-success': profilForm.name.$dirty && profilForm.first_name.$valid}">
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.first_name.$dirty && profilForm.first_name.$invalid, 'has-success': profilForm.first_name.$dirty && profilForm.first_name.$valid}">
 				<label class="col-md-1 control-label" for="first_name">Prénom</label>
 				<div class="col-md-2">
 					<input id="first_name" type="text" class="form-control" name="first_name" ng-model="profilFirst_name" required/>
-					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.first_name.$valid"></span>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.first_name.$dirty && profilForm.first_name.$valid"></span>
 					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.first_name.$dirty && profilForm.first_name.$invalid"></span>
 					<span class="text-danger" ng-show="profilForm.first_name.$dirty && profilForm.first_name.$error.required">*Ce champ est obligatoire</span>
 				</div>
 			</div>
 
-			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.mail.$dirty && profilForm.mail.$invalid, 'has-success': profilForm.name.$dirty && profilForm.mail.$valid}">
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.mail.$dirty && profilForm.mail.$invalid, 'has-success': profilForm.mail.$dirty && profilForm.mail.$valid}">
 				<label class="col-md-1 control-label" for="mail">Email</label>
 				<div class="col-md-2">
 					<input id="mail" type="email" class="form-control" name="mail" ng-model="profilMail" required/>
-					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.mail.$valid"></span>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.mail.$dirty && profilForm.mail.$valid"></span>
 					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.mail.$dirty && profilForm.mail.$invalid"></span>
 					<span class="text-danger" ng-show="profilForm.mail.$dirty && profilForm.mail.$error.required">*Ce champ est obligatoire</span>
 					<span class="text-danger" ng-show="profilForm.mail.$dirty && profilForm.mail.$error.email">*L'email n'est pas valide</span>
 				</div>
 			</div>
 
-			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$invalid, 'has-success': profilForm.name.$dirty && profilForm.dateofbirth.$valid}">
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$invalid, 'has-success': profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$valid}">
 				<label class="col-md-1 control-label" for="dateofbirth">Date de naissance</label>
 				<div class="col-md-2">
 					<input id="dateofbirth" type="date" class="form-control" name="dateofbirth" ng-model="profilDateofbirth" required/>
-					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.dateofbirth.$valid"></span>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$valid"></span>
 					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$invalid"></span>
 					<span class="text-danger" ng-show="profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$error.required">*Ce champ est obligatoire</span>
 					<span class="text-danger" ng-show="profilForm.dateofbirth.$dirty && profilForm.dateofbirth.$error.date">*Le format de la date n'est pas valide</span>
 				</div>
 			</div>
 
-			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.phone.$dirty && profilForm.phone.$invalid, 'has-success': profilForm.name.$dirty && profilForm.phone.$valid}">
+			<div class="form-group has-feedback" ng-class="{'has-error': profilForm.phone.$dirty && profilForm.phone.$invalid, 'has-success': profilForm.phone.$dirty && profilForm.phone.$valid}">
 				<label class="col-md-1 control-label" for="phone">Téléphone</label>
 				<div class="col-md-2">
 					<input id="phone" type="text" class="form-control" name="phone" ng-model="profilPhone" required/>
-					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.name.$dirty && profilForm.phone.$valid"></span>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="profilForm.phone.$dirty && profilForm.phone.$valid"></span>
 					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="profilForm.phone.$dirty && profilForm.phone.$invalid"></span>
 					<span class="text-danger" ng-show="profilForm.phone.$dirty && profilForm.phone.$error.required">*Ce champ est obligatoire</span>
 				</div>

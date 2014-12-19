@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>League</title>
+	</head>
+
+	<body ng-controller="LeagueController as league">
+
+		<div id="leaguewrapper">
+			<img src="http://placehold.it/300x250" />
+			<span id="leaguename"><h1>{{leaguename}}</h1></span>
+
+			<div id="leaguedesc">
+				<p>
+					{{leaguedesc}}
+				</p>
+			</div>
+
+			<table class="table table-responsive table-hover" id="leagueinfos">
+				<tr>
+					<th>Président de la ligue:</th>
+					<td><a href="/user/{{id}}">{{leagueprez}}</a></td>
+				</tr>
+				<tr>
+					<th>Email:</th>
+					<td>{{leaguemail}}</td>
+				</tr>
+				<tr>
+					<th>Numéro de téléphone:</th>
+					<td>{{leaguephonenumber}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="clearfix"></div>
+		<br/>
+		<br/>
+
+		<div class="container">
+			<div class="carousel">
+				<div class="item">
+					<img src="{{leagueimages[0]}}" width="100%" height="500"/>
+					<div class="carousel-caption">
+						<h4>BOOTSTRAP</h4>
+						<p>
+							Est quand même hyper utile dans certains cas
+						<a class="btn btn-sm btn-default">Concombre</a>
+						</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="{{leagueimages[1]}}" width="100%" height="500"/>
+					<div class="carousel-caption">
+						<h4>Super évènement des grosses boules</h4>
+						<p>
+							La super fêtes des boules est de retour avec encore plus 
+							de boules. Organisation incroyable géré par infosup et notre 
+							célèbre Patou ! Ne manquez pas l'incroyable fête des boules !
+						<a class="btn btn-sm btn-default">Couille</a>
+						</p>
+					</div>
+				</div>
+				<div class="item">
+					<img src="{{leagueimages[2]}}" width="100%" height="500"/>
+					<div class="carousel-caption">
+						<h4>Fête des Travailleurs</h4>
+						<p>
+							L'inoubliable fête des travailleurs avec en tête d'affiche 
+							nos plus grand travailleurs tel des chinois, j'ai nommé 
+							Timothée mangeur de Foutre, Marine suceuse de Moule et 
+							Adrien Fantôme de Merde !
+						<a class="btn btn-sm btn-default">Ironie</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/carousel.js"></script>
+	</body>
+</html>

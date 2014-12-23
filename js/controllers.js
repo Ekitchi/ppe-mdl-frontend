@@ -1,39 +1,49 @@
 angular.module('mdl.controllers', ['mdl.service'])
 
+
+.controller('AccueilController', ['$scope', '$routeParams', '$location', '$http', 'MdlService',
+	function($scope, $routeParams, $location, $http, MdlService) {
+
+	}
+])
+
 .controller('InscriptionController', ['$scope', '$routeParams', '$location', '$http','MdlService',
 	function($scope, $routeParams, $location, $http, MdlService) {
-        /*
-        This is the Register controller.
-        It's the root partial displayed at the start of the application, for the exercise purpose.
-        Here you'll define the behaviour for the different input.
-        You'll use the form $scope.NameOfTheInput = behaviour;
-        Because it's obvious to many, the RouteProviding has been made for your convenience.
-        However you will need to create the other Controllers on this page, following the same model.
-        You will also need to create the other HTML Pages, with the inscription.html model.
-        Good luck!
-        */
+    
+
+    $scope.autoFill = function(){
+    	var randomChar = Math.random().toString(36).substring(7);
+    	$scope.inscriptionName = "Poulet";
+    	$scope.inscriptionFirst_name = "Frit";
+    	$scope.inscriptionMail = "komjm"+randomChar+"@poulet.frit";
+		$scope.inscriptionDateofbirth = "1990-02-22";
+		$scope.inscriptionPhone = 0123456789;
+		$scope.inscriptionAddressField = "42 Rue des PlusDe255Caractères, première porte à gauche, après la cave remplie de pedoporn asiatique, code 1242 sur le digicode. 2e étage, 4eme porte à droite après les dealers de coke de Delarue et de Valls. Passez le code 'LICRA' à Moïse le gardien, et ça devrait faire plus de 255.";
+		console.log($scope.inscriptionAddressField.length);
+		$scope.inscriptionZipCode = "93270";
+		$scope.inscriptionCityField = "SEVRAK";
+    }
+	
 	$scope.ConfirmRegister = function()
-		{
-        	
-			if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
-                MdlService.postUser($scope.inscriptionName, $scope.inscriptionFirst_name, $scope.inscriptionMail, $scope.registerForm.password.$viewValue)
-                .then(function success(success){
-                    $location.path('/connexion');
-                    console.log('Okay');
-                },
-                function error(error){
-                    console.log('Nope');
-                    console.log(error);
-                });
-        	}
-        	else{
-        		console.log("Mot de passe: ERROR");
-        		console.log("Mot de passe1:", $scope.inscriptionPassword);
-        		console.log("Mot de passe2:", $scope.inscriptionPasswordConfirm);
-        		alert('Les mots de passe ne correspondent pas');
-        	}
-       };
-   }
+	{
+		if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
+
+            MdlService.postUser($scope.inscriptionName, $scope.inscriptionFirst_name, $scope.inscriptionMail, $scope.registerForm.password.$viewValue, $scope.inscriptionDateofbirth, $scope.inscriptionPhone, $scope.inscriptionAddressField, $scope.inscriptionZipCode, $scope.inscriptionCityField)
+            .then(function success(success){
+           	 $location.path('/connexion');
+             console.log('Okay');
+            },
+            function error(error){
+             console.log('Error accessing the REST Service. Please review the error below. \n');
+             console.log(error);
+            });
+        }
+        else{
+        	console.log("ERROR. Please review the informations.");
+
+        }
+    };
+ }
 ])
 
 
@@ -134,7 +144,7 @@ angular.module('mdl.controllers', ['mdl.service'])
 		$scope.profilFirst_name = "Prénom de l'utilisateur";
 		$scope.profilMail = "Emailde@lutisateur";
 		$scope.profilDateofbirth = "66/66/6666";
-		$scope.profilPhone = "0623381821";
+		$scope.profilPhone = 0623381821;
 	}
 ])
 

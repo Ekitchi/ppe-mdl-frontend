@@ -90,7 +90,34 @@
 					<span class="text-danger" ng-show="registerForm.phone.$dirty && registerForm.phone.$error.required">*Ce champ est obligatoire</span>
 				</div>
 			</div>
-
+			<div class="form-group has-feedback" ng-class="{'has-error': registerForm.addressField.$dirty && registerForm.addressField.$invalid, 'has-success': registerForm.addressField.$valid}">
+				<label class="col-md-1 control-label" for="addressField">Adresse</label>
+				<div class="col-md-2">
+					<input id="addressField" type="text" class="form-control" name="addressField" ng-model="inscriptionAddressField" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="registerForm.addressField.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="registerForm.addressField.$dirty && registerForm.addressField.$invalid"></span>
+					<span class="text-danger" ng-show="registerForm.addressField.$dirty && registerForm.addressField.$error.required">*Ce champ est obligatoire</span>
+				</div>	
+			</div>
+			<div class="form-group has-feedback" ng-class="{'has-error': registerForm.zipCode.$dirty && registerForm.zipCode.$invalid, 'has-success': registerForm.zipCode.$valid}">
+				<label class="col-md-1 control-label" for="zipCode">Code Postal</label>
+				<div class="col-md-2">
+					<input id="zipCode" type="text" class="form-control" name="zipCode" ng-model="inscriptionZipCode" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="registerForm.zipCode.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="registerForm.zipCode.$dirty && registerForm.zipCode.$invalid"></span>
+					<span class="text-danger" ng-show="registerForm.zipCode.$dirty && registerForm.zipCode.$error.required">*Ce champ est obligatoire</span>
+				</div>
+			</div>	
+			<div class="form-group has-feedback" ng-class="{'has-error': registerForm.cityField.$dirty && registerForm.cityField.$invalid, 'has-success': registerForm.cityField.$valid}">
+				<label class="col-md-1 control-label" for="cityField">Ville</label>
+				<div class="col-md-2">
+					<input id="cityField" type="text" class="form-control" name="cityField" ng-model="inscriptionCityField" required/>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="registerForm.cityField.$valid"></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="registerForm.cityField.$dirty && registerForm.cityField.$invalid"></span>
+					<span class="text-danger" ng-show="registerForm.cityField.$dirty && registerForm.cityField.$error.required">*Ce champ est obligatoire</span>
+				</div>	
+			</div>
+			<button type="button" class="btn btn-default" ng-click="autoFill()">AutoFill</button>
 			<div class="form-group">
 				<div class="col-md-offset-2 col-md-9">
 					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#registerModal" ng-show="registerForm.$invalid">

@@ -1,8 +1,8 @@
 angular.module('mdl.controllers', ['mdl.service'])
 
 
-.controller('AccueilController', ['$scope', '$routeParams', '$location', '$http', 'MdlService',
-	function($scope, $routeParams, $location, $http, MdlService) {
+.controller('AccueilController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService',
+	function($scope, $routeParams, $location, $window, $http, MdlService) {
 
 	}
 ])
@@ -48,9 +48,27 @@ angular.module('mdl.controllers', ['mdl.service'])
 
 
 
-.controller('ConnexionController', ['$scope', '$routeParams', '$http', '$window',
-	function($scope, $routeParams, $http, $window) {
+.controller('ConnexionController', ['$scope', '$routeParams','$location', '$http', '$window', 'MdlService',
+	function($scope, $routeParams, $location, $http, $window, MdlService) {
 		
+		$scope.checkLogin = function()
+		{
+		MdlService.login($scope.mail, $scope.password)
+		.then(function success(success){
+			console.log(success);
+			if (success.code == 200) {
+
+			//This is the var to call for the logged user's token.
+			$window.sessionStorage.token = success.token.token;
+			$location.path('/');
+			}
+		},
+		function error(error){
+			console.log("ERROR \n");
+			console.log(error);
+		})
+		}
+
 		
 	}
 ])

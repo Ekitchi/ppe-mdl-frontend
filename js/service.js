@@ -26,7 +26,6 @@ angular.module('mdl.service', [])
 	//We'll call this       with those params
 		postUser : function(firstNameValue, lastNameValue, emailValue, passwordValue, dateOfBirthValue, phoneValue, addressValue, zipCodeValue, cityValue ) {
 		// Ugliest JSON maker I've ever seen
-		// TODO : If addressField is more than 255, split into addressField2. If more, well, where the fuck do you live?
 		var obj = {};
 		if ((addressValue.length) > 254){
 			var partAddressValue = addressValue.match(/[\s\S]{1,254}/g) || [];
@@ -47,18 +46,23 @@ angular.module('mdl.service', [])
 		obj.zip_code = zipCodeValue;
 		obj.city = cityValue;
 		var jsonObj = JSON.stringify(obj);
-		// Logging in console. Just to be sure about those fucking double quotes.
-		console.log(jsonObj);
 
 
 		//This is where the magic happens.
         return wrapped$httpPromise({
             method: 'POST',
-            // Headers not working. Delete it to actually proceed the request. Or don't. I don't care. Fuck this shit. - Angry dev @5:15PM 19/12/2014
             headers: {'Content-Type': "application/x-www-form-urlencoded"},
             url: symfonyUrl+'/user/',
             data: "data="+jsonObj
         	});
+		},
+
+		login : function(login, password){
+			return wrapped$httpPromise({
+				method: 'GET',
+				headers: {'Content-Type': "application/x-www-form-urlencoded"},
+				url: symfonyUrl+'/user/'+login+'/'+password
+			});
 		}
 	};
 }]);

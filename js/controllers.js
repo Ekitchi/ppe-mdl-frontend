@@ -11,32 +11,32 @@ angular.module('mdl.controllers', ['mdl.service'])
 	function($scope, $routeParams, $location, $http, MdlService) {
     
 
-    $scope.autoFill = function(){
-    	var randomChar = Math.random().toString(36).substring(7);
-    	$scope.inscriptionName = "Poulet";
-    	$scope.inscriptionFirst_name = "Frit";
-    	$scope.inscriptionMail = "komjm"+randomChar+"@poulet.frit";
-		$scope.inscriptionDateofbirth = "1990-02-22";
-		$scope.inscriptionPhone = 0123456789;
-		$scope.inscriptionAddressField = "42 Rue des PlusDe255Caractères, première porte à gauche, après la cave remplie de pedoporn asiatique, code 1242 sur le digicode. 2e étage, 4eme porte à droite après les dealers de coke de Delarue et de Valls. Passez le code 'LICRA' à Moïse le gardien, et ça devrait faire plus de 255.";
-		console.log($scope.inscriptionAddressField.length);
-		$scope.inscriptionZipCode = "93270";
-		$scope.inscriptionCityField = "SEVRAK";
-    }
+    	$scope.autoFill = function(){
+    		var randomChar = Math.random().toString(36).substring(7);
+    		$scope.inscriptionName = "Poulet";
+    		$scope.inscriptionFirst_name = "Frit";
+    		$scope.inscriptionMail = "komjm"+randomChar+"@poulet.frit";
+			$scope.inscriptionDateofbirth = "1990-02-22";
+			$scope.inscriptionPhone = 0123456789;
+			$scope.inscriptionAddressField = "42 Rue des PlusDe255Caractères, première porte à gauche, après la cave remplie de pedoporn asiatique, code 1242 sur le digicode. 2e étage, 4eme porte à droite après les dealers de coke de Delarue et de Valls. Passez le code 'LICRA' à Moïse le gardien, et ça devrait faire plus de 255.";
+			console.log($scope.inscriptionAddressField.length);
+			$scope.inscriptionZipCode = "93270";
+			$scope.inscriptionCityField = "SEVRAK";
+    	};
 	
-	$scope.ConfirmRegister = function()
-	{
-		if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
+		$scope.ConfirmRegister = function()
+		{
+			if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
 
-            MdlService.postUser($scope.inscriptionName, $scope.inscriptionFirst_name, $scope.inscriptionMail, $scope.registerForm.password.$viewValue, $scope.inscriptionDateofbirth, $scope.inscriptionPhone, $scope.inscriptionAddressField, $scope.inscriptionZipCode, $scope.inscriptionCityField)
-            .then(function success(success){
-           	 $location.path('/connexion');
-             console.log('Okay');
-            },
-            function error(error){
-             console.log('Error accessing the REST Service. Please review the error below. \n');
-             console.log(error);
-            });
+				MdlService.postUser($scope.inscriptionName, $scope.inscriptionFirst_name, $scope.inscriptionMail, $scope.registerForm.password.$viewValue, $scope.inscriptionDateofbirth, $scope.inscriptionPhone, $scope.inscriptionAddressField, $scope.inscriptionZipCode, $scope.inscriptionCityField)
+				.then(function success(success){
+				$location.path('/connexion');
+				console.log('Okay');
+				},
+			function error(error){
+				console.log('Error accessing the REST Service. Please review the error below. \n');
+				console.log(error);
+            	});
         }
         else{
         	console.log("ERROR. Please review the informations.");
@@ -66,9 +66,9 @@ angular.module('mdl.controllers', ['mdl.service'])
 		function error(error){
 			console.log("ERROR \n");
 			console.log(error);
-		})
-		}
-
+		});
+		};
+		
 		
 	}
 ])

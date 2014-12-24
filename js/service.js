@@ -27,12 +27,14 @@ angular.module('mdl.service', [])
 		postUser : function(firstNameValue, lastNameValue, emailValue, passwordValue, dateOfBirthValue, phoneValue, addressValue, zipCodeValue, cityValue ) {
 		// Ugliest JSON maker I've ever seen
 		var obj = {};
+		// Checking is address' field is equal or more than 255 chars to avoid MySQL errors by trying to put a 255+ varchar String.
+		// If true, will put the 256e & + char(s) into second field.
 		if ((addressValue.length) > 254){
 			var partAddressValue = addressValue.match(/[\s\S]{1,254}/g) || [];
 			obj.address_field_1 = partAddressValue[0];
 			obj.address_field_2 = partAddressValue[1];
-			var isAddressValueSplit = true;
 		}
+		// If not, will send one field, and set the 2nd to null. Null factor is handled by REST service.
 		else {
 			obj.address_field_1 = addressValue;
 			obj.address_field_2 = null;
@@ -45,10 +47,11 @@ angular.module('mdl.service', [])
 		obj.phone_number = "33"+phoneValue;
 		obj.zip_code = zipCodeValue;
 		obj.city = cityValue;
+		// Stringify the JSON Object to be understand by REST Service.
 		var jsonObj = JSON.stringify(obj);
 
 
-		//This is where the magic happens.
+		// Actual request to REST Service, sending the Stringified JSON Object to be added as a new User.
         return wrapped$httpPromise({
             method: 'POST',
             headers: {'Content-Type': "application/x-www-form-urlencoded"},
@@ -57,6 +60,7 @@ angular.module('mdl.service', [])
         	});
 		},
 
+		// Login request to REST by sending login/password. Will return an HTTP response, handled in controller.js, on LoginController.
 		login : function(login, password){
 			return wrapped$httpPromise({
 				method: 'GET',

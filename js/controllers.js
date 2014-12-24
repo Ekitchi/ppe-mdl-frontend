@@ -10,7 +10,7 @@ angular.module('mdl.controllers', ['mdl.service'])
 .controller('InscriptionController', ['$scope', '$routeParams', '$location', '$http','MdlService',
 	function($scope, $routeParams, $location, $http, MdlService) {
     
-
+	//Dev purpose. Will fill each field for the "Inscription" form, except password. Added a random part on the email since email is unique in DB.
     $scope.autoFill = function(){
     	var randomChar = Math.random().toString(36).substring(7);
     	$scope.inscriptionName = "Poulet";
@@ -24,6 +24,8 @@ angular.module('mdl.controllers', ['mdl.service'])
 		$scope.inscriptionCityField = "SEVRAK";
     }
 	
+	// Check for validity of the form before sending the request to REST Service. console.log are for dev purpose.
+	// TODO : Delete the console.log for theorical release.
 	$scope.ConfirmRegister = function()
 	{
 		if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
@@ -51,6 +53,7 @@ angular.module('mdl.controllers', ['mdl.service'])
 .controller('ConnexionController', ['$scope', '$routeParams','$location', '$http', '$window', 'MdlService',
 	function($scope, $routeParams, $location, $http, $window, MdlService) {
 		
+		// Asking REST Service if the login credentials are valid. Handle the HTTP Response.
 		$scope.checkLogin = function()
 		{
 		MdlService.login($scope.mail, $scope.password)
@@ -60,6 +63,7 @@ angular.module('mdl.controllers', ['mdl.service'])
 
 			//This is the var to call for the logged user's token.
 			$window.sessionStorage.token = success.token.token;
+			// Return to homepage. Maybe it's more pertinent to redirect to "Mon compte" part?
 			$location.path('/');
 			}
 		},
@@ -101,8 +105,9 @@ angular.module('mdl.controllers', ['mdl.service'])
 		$scope.ConfirmAddLeague = function()
 		{
 			if($scope.addleagueForm.$valid){
-				alert('Ligue créé');
+				alert('Ligue créée');
 				$location.path('/league/1');
+				// Console.log while waiting for REST to handle/allow the request.
 				console.log($scope.addleagueName);
 				console.log($scope.addleaguePresident);
 			}
@@ -117,7 +122,7 @@ angular.module('mdl.controllers', ['mdl.service'])
 
 .controller('ListLeaguesController', ['$scope', '$routeParams',
 	function($scope, $routeParams, $window){
-		
+		// Mocked data
 		$scope.leagueArray = [
 			{
 				'id': '001',

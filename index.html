@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="MDL">
+<html ng-app="MDL" ng-controller="IndexController" data-ng-init="cookieCheck()">
 
 	<head>
 		<meta charset=utf-8 />
@@ -43,11 +43,14 @@
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right">
-							<li>
-								<a href="#/connexion"><span class="glyphicon glyphicon-log-in"></span> Connexion</a>
+							<li ng-show="!logged">
+								<a href="#/connexion"><span class="glyphicon glyphicon-log-in" ></span> Connexion</a>
 							</li>
-							<li>
-								<a href="#/inscription"><span class="glyphicon glyphicon-floppy-save"></span> S'inscrire</a>
+							<li ng-show="!logged">
+								<a href="#/inscription"><span class="glyphicon glyphicon-floppy-save" ></span> S'inscrire</a>
+							</li>
+							<li ng-show="logged">
+								<a href="#/profil"><span class="glyphicon glyphicon-log-in" ></span> Mon Compte </a>
 							</li>
 						</ul>
 					</div>
@@ -60,7 +63,7 @@
 							<li>
 								<a href="#">Accueil</a>
 							</li>
-							<li>
+							<li ng-show="logged">
 								<a href="#"> Mon compte<span class="fa arrow"></span></a>
 								<ul class="nav nav-second-level">
 									<li>
@@ -112,7 +115,7 @@
 								<!-- /.nav-second-level -->
 							</li>
 							<li>
-								<a href="#"> SOS Partenaire</a>
+								<a href="#"> SOS Partenaire</div>
 							</li>
 						</ul>
 					</div>
@@ -150,6 +153,7 @@
 		<script src="js/app.js"  type="text/javascript"></script>
 		<script src="js/controllers.js"></script>
 		<script src="js/service.js"></script>
+		<script src="js-lib/angular-cookies.js"></script>
 		<!-- Menu Toggle Script -->
 		<script>
 			$("#menu-toggle").click(function(e) {

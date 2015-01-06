@@ -1,14 +1,41 @@
-angular.module('mdl.controllers', ['mdl.service'])
+angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
+.service('cookieService', function(){
+	var logged;
+	return {
+		getLoggedStatus: function(){
+			return logged;
+		},
+		setLoggedStatus: function(status){
+			logged = status;
+		}
+	}
+})
 
-.controller('AccueilController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService',
-	function($scope, $routeParams, $location, $window, $http, MdlService) {
+.controller('IndexController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService', '$cookieStore', 'cookieService', 
+	function($scope, $routeParams, $location, $window, $http, MdlService, $cookieStore, cookieService) {
+		$scope.tokenCookie = $cookieStore.get("Token");
+		$scope.logged = cookieService.getLoggedStatus;
+
+		$scope.cookieCheck = function(){
+			if($scope.tokenCookie != null){
+				$scope.logged = true;
+			}
+			else if($scope.tokenCookie == undefined){
+				$scope.logged = false;
+			}
+	};
+	}
+	])
+
+.controller('AccueilController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService', '$cookieStore',
+	function($scope, $routeParams, $location, $window, $http, MdlService, $cookieStore) {
 
 	}
 ])
 
-.controller('InscriptionController', ['$scope', '$routeParams', '$location', '$http','MdlService',
-	function($scope, $routeParams, $location, $http, MdlService) {
+.controller('InscriptionController', ['$scope', '$routeParams', '$location', '$http','MdlService', '$cookieStore', 
+	function($scope, $routeParams, $location, $http, MdlService, $cookieStore) {
     
 
     	$scope.autoFill = function(){
@@ -48,8 +75,8 @@ angular.module('mdl.controllers', ['mdl.service'])
 
 
 
-.controller('ConnexionController', ['$scope', '$routeParams','$location', '$http', '$window', 'MdlService',
-	function($scope, $routeParams, $location, $http, $window, MdlService) {
+.controller('ConnexionController', ['$scope', '$routeParams','$location', '$http', '$window', 'MdlService', '$cookieStore', 'cookieService', 
+	function($scope, $routeParams, $location, $http, $window, MdlService, $cookieStore, cookieService) {
 		
 		// Asking REST Service if the login credentials are valid. Handle the HTTP Response.
 		$scope.checkLogin = function()
@@ -60,15 +87,21 @@ angular.module('mdl.controllers', ['mdl.service'])
 			if (success.code == 200) {
 
 			//This is the var to call for the logged user's token.
-			$window.sessionStorage.token = success.token.token;
+			$cookieStore.put("Token", success.token.token);
+			$cookieStore.put("User", success.token.user);
+			console.log($cookieStore.get("Token"));
+			console.log($cookieStore.get("User"));
+			$scope.logged = cookieService.setLoggedStatus(true);
 			// Return to homepage. Maybe it's more pertinent to redirect to "Mon compte" part?
 			$location.path('/');
+			location.reload();
 			}
 		},
 		function error(error){
 			console.log("ERROR \n");
 			console.log(error);
 		});
+
 		};
 		
 		

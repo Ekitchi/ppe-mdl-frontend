@@ -24,7 +24,15 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 			else if($scope.tokenCookie == undefined){
 				$scope.logged = false;
 			}
-	};
+		};
+
+		$scope.disconnect = function(){
+			$cookieStore.remove("Token");
+			$cookieStore.remove("User");
+			cookieService.setLoggedStatus(false);
+			$location.path('/');
+			location.reload();
+		}
 	}
 	])
 

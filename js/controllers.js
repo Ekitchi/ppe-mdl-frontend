@@ -10,37 +10,6 @@ angular.module('mdl.controllers', ['mdl.service'])
 .controller('InscriptionController', ['$scope', '$routeParams', '$location', '$http','MdlService',
 	function($scope, $routeParams, $location, $http, MdlService) {
     
-<<<<<<< HEAD
-	//Dev purpose. Will fill each field for the "Inscription" form, except password. Added a random part on the email since email is unique in DB.
-    $scope.autoFill = function(){
-    	var randomChar = Math.random().toString(36).substring(7);
-    	$scope.inscriptionName = "Poulet";
-    	$scope.inscriptionFirst_name = "Frit";
-    	$scope.inscriptionMail = "komjm"+randomChar+"@poulet.frit";
-		$scope.inscriptionDateofbirth = "1990-02-22";
-		$scope.inscriptionPhone = 0123456789;
-		$scope.inscriptionAddressField = "42 Rue des PlusDe255Caractères, première porte à gauche, après la cave remplie de pedoporn asiatique, code 1242 sur le digicode. 2e étage, 4eme porte à droite après les dealers de coke de Delarue et de Valls. Passez le code 'LICRA' à Moïse le gardien, et ça devrait faire plus de 255.";
-		console.log($scope.inscriptionAddressField.length);
-		$scope.inscriptionZipCode = "93270";
-		$scope.inscriptionCityField = "SEVRAK";
-    }
-	
-	// Check for validity of the form before sending the request to REST Service. console.log are for dev purpose.
-	// TODO : Delete the console.log for theorical release.
-	$scope.ConfirmRegister = function()
-	{
-		if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
-
-            MdlService.postUser($scope.inscriptionName, $scope.inscriptionFirst_name, $scope.inscriptionMail, $scope.registerForm.password.$viewValue, $scope.inscriptionDateofbirth, $scope.inscriptionPhone, $scope.inscriptionAddressField, $scope.inscriptionZipCode, $scope.inscriptionCityField)
-            .then(function success(success){
-           	 $location.path('/connexion');
-             console.log('Okay');
-            },
-            function error(error){
-             console.log('Error accessing the REST Service. Please review the error below. \n');
-             console.log(error);
-            });
-=======
 
     	$scope.autoFill = function(){
     		var randomChar = Math.random().toString(36).substring(7);
@@ -68,7 +37,6 @@ angular.module('mdl.controllers', ['mdl.service'])
 				console.log('Error accessing the REST Service. Please review the error below. \n');
 				console.log(error);
             	});
->>>>>>> 243390e98c2084265e30234950008e04d5d967d6
         }
         else{
         	console.log("ERROR. Please review the informations.");

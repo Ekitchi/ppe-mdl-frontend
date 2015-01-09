@@ -67,6 +67,14 @@ angular.module('mdl.service', [])
 				headers: {'Content-Type': "application/x-www-form-urlencoded"},
 				url: symfonyUrl+'/user/'+login+'/'+password
 			});
+		},
+
+		getLeagueList: function(){
+			return wrapped$httpPromise({
+				method: 'GET',
+				headers: {'Content-Type': "application/x-www-form-urlencoded"},
+				url: symfonyUrl+'/leagues/'
+			});
 		}
 	};
 }]);

@@ -159,41 +159,17 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 ])
 
 
-.controller('ListLeaguesController', ['$scope', '$routeParams',
-	function($scope, $routeParams, $window){
+.controller('ListLeaguesController', ['$scope', '$routeParams', '$window', 'MdlService',
+	function($scope, $routeParams, $window, MdlService){
 		// Mocked data
-		$scope.leagueArray = [
-			{
-				'id': '001',
-				'Nom': 'Ligue des Travailleurs',
-				'President': 'Timothée suceur de Bites',
-				'Email': 'Suceur@bite.fr',
-				'Telephone': '06f0392o93u45t3r31e'
-			},
-			{
-				'id': '002',
-				'Nom': 'Ligue des Travailleuses',
-				'President': 'Marine suceuse de Moules',
-				'Email': 'Suceuse@moule.fr',
-				'Telephone': '06m112o62u71i8l7l4e'
-			},
-			{
-				'id': '003',
-				'Nom': 'Ligue des Transparents',
-				'President': 'Adrien Fantôme de merde',
-				'Email': 'Fantôme@sodomisé.fr',
-				'Telephone': '06b957i91t37e362'
-			},
-			{
-				'id': '004',
-				'Nom': 'Ligue des Péripatéticiennes',
-				'President': 'Madame Prostipute',
-				'Email': 'partouze@interraciale.fr',
-				'Telephone': '06m112e62r71d8174e'
-			}
-		];
 
-
+    $scope.getleagueArray = MdlService.getLeagueList().then(function (success){
+      $scope.leagueArray = success.leagues;
+      console.log(success.leagues);
+    }, function(error){
+      console.log(error);
+      console.log("Error on promise");
+    });
 	}
 ])
 

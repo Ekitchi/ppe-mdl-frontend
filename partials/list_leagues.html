@@ -15,20 +15,20 @@
 		<br/>
 
 		<div class="container" ng-repeat="league in leagueArray">
-			
-			<h3>{{league.Nom}}</h3>
+
+			<h3>{{league.name}}</h3>
 			<table class="table table-responsive table-hover" id="listleague">
 				<tr>
 					<th>Président:</th>
-					<td><a href="/user/{{id}}">{{league.President}}</a></td>
+					<td><a href="/user/{{id}}">{{league.president}}</a></td>
 				</tr>
 				<tr>
 					<th>Email:</th>
-					<td>{{league.Email}}</td>
+					<td>{{league.mail}}</td>
 				</tr>
 				<tr>
 					<th>Téléphone:</th>
-					<td>{{league.Telephone}}</td>
+					<td>{{league.phone_number}}</td>
 				</tr>
 			</table>
 		</div>

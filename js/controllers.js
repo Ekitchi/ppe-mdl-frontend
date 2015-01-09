@@ -12,7 +12,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 	}
 })
 
-.controller('IndexController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService', '$cookieStore', 'cookieService', 
+.controller('IndexController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService', '$cookieStore', 'cookieService',
 	function($scope, $routeParams, $location, $window, $http, MdlService, $cookieStore, cookieService) {
 		$scope.tokenCookie = $cookieStore.get("Token");
 		$scope.logged = cookieService.getLoggedStatus;
@@ -42,9 +42,9 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 	}
 ])
 
-.controller('InscriptionController', ['$scope', '$routeParams', '$location', '$http','MdlService', '$cookieStore', 
+.controller('InscriptionController', ['$scope', '$routeParams', '$location', '$http','MdlService', '$cookieStore',
 	function($scope, $routeParams, $location, $http, MdlService, $cookieStore) {
-    
+
 
     	$scope.autoFill = function(){
     		var randomChar = Math.random().toString(36).substring(7);
@@ -58,7 +58,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 			$scope.inscriptionZipCode = "93270";
 			$scope.inscriptionCityField = "SEVRAK";
     	};
-	
+
 		$scope.ConfirmRegister = function()
 		{
 			if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
@@ -83,9 +83,9 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 
 
-.controller('ConnexionController', ['$scope', '$routeParams','$location', '$http', '$window', 'MdlService', '$cookieStore', 'cookieService', 
+.controller('ConnexionController', ['$scope', '$routeParams','$location', '$http', '$window', 'MdlService', '$cookieStore', 'cookieService',
 	function($scope, $routeParams, $location, $http, $window, MdlService, $cookieStore, cookieService) {
-		
+
 		// Asking REST Service if the login credentials are valid. Handle the HTTP Response.
 		$scope.checkLogin = function()
 		{
@@ -111,8 +111,8 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 		});
 
 		};
-		
-		
+
+
 	}
 ])
 
@@ -120,14 +120,14 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 .controller('LeagueController', ['$scope', '$routeParams',
 	function($scope, $routeParams, $window) {
-		
-		
+
+
 		$scope.leaguename = "LIGUE DES GROSSES BOULES";
 		$scope.leagueprez = "M. Grossesboules";
 		$scope.leaguemail = "grosses@boules.fr";
 		$scope.leaguephonenumber = "6666666666666";
 		$scope.leaguedesc = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-		
+
 		$scope.leagueimages = [
 				"css/images/test1.jpg",
 				"css/images/test2.jpg",
@@ -140,7 +140,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 .controller('AddLeagueController', ['$scope', '$routeParams', '$location',
 	function($scope, $routeParams, $location, $window) {
-		
+
 		$scope.ConfirmAddLeague = function()
 		{
 			if($scope.addleagueForm.$valid){
@@ -153,7 +153,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 			else{
 				alert('ERROR');
 			}
-			
+
 		};
 	}
 ])
@@ -192,8 +192,8 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 				'Telephone': '06m112e62r71d8174e'
 			}
 		];
-		
-		
+
+
 	}
 ])
 
@@ -201,7 +201,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 .controller('ProfilController', ['$scope', '$routeParams',
 	function($scope, $routeParams, $window) {
-		
+
 		$scope.profilName = "Nom de l'utilisateur";
 		$scope.profilFirst_name = "Prénom de l'utilisateur";
 		$scope.profilMail = "Emailde@lutisateur";
@@ -213,13 +213,13 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 .controller('UserController', ['$scope', '$routeParams',
 	function($scope, $routeParams, $window) {
-		
+
 		$scope.username = "Boule";
 		$scope.userfirstname = "LaGrosse";
 		$scope.usermail = "lagrosse@boule.fr";
 		$scope.userdateofbirth = "12/10/1293";
-		
-		
+
+
 	}
 ])
 
@@ -232,16 +232,16 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
         require: 'ngModel',
         link: function (scope, elem, attrs, control) {
             var check = function () {
- 
+
                 //Récupérer le mot de passe de la confirmation
-                var e1 = scope.$eval(attrs.ngModel); 
- 
-                //Récupérer le mot de passe 
+                var e1 = scope.$eval(attrs.ngModel);
+
+                //Récupérer le mot de passe
                 var e2 = scope.$eval(attrs.passwordMatch).$viewValue;
                 return e1 == e2;
             };
             scope.$watch(check, function (isValid) {
- 
+
                 //Défini si le champ est valide ou non
                 control.$setValidity("passwordMatch", isValid);
             });

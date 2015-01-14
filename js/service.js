@@ -75,6 +75,32 @@ angular.module('mdl.service', [])
 				headers: {'Content-Type': "application/x-www-form-urlencoded"},
 				url: symfonyUrl+'/leagues/'
 			});
+		},
+
+		getLeague: function(league_id){
+			return wrapped$httpPromise({
+				method:'GET',
+				headers: {'Content-Type': "application/x-www-form-urlencoded"},
+				url: symfonyUrl+'/league/'+league_id
+			});
+		},
+
+		postLeague: function(id_president, name, email, phoneNumber, description){
+			var obj = {};
+			obj.id_president = id_president;
+			obj.name = name;
+			obj.email = email;
+			obj.phoneNumber = phoneNumber;
+			obj.description = description;
+
+			var jsonObj = JSON.stringify(obj);
+
+				return wrapped$httpPromise({
+					method: 'POST',
+					headers: {'Content-Type': "application/x-www-form-urlencoded"},
+					url: symfonyUrl+'/leagues/',
+					data: "data="+jsonObj
+				});
 		}
 	};
 }]);

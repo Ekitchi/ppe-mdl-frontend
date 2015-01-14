@@ -16,11 +16,11 @@
 
 		<div class="container" ng-repeat="league in leagueArray">
 
-			<h3>{{league.name}}</h3>
+			<h3><a href="#/league/{{league.id}}">{{league.name}}</a></h3>
 			<table class="table table-responsive table-hover" id="listleague">
 				<tr>
 					<th>Président:</th>
-					<td><a href="/user/{{id}}">{{league.president}}</a></td>
+					<td><a href="/user/{{id}}"> {{league.president.first_name}} {{league.president.name}}</a></td>
 				</tr>
 				<tr>
 					<th>Email:</th>

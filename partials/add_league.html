@@ -23,17 +23,8 @@
 					<span class="text-danger" ng-show="addleagueForm.name.$dirty && addleagueForm.name.$error.required">*Ce champ est obligatoire</span>
 				</div>
 			</div>
-			
-			<div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.president.$dirty && addleagueForm.president.$invalid, 'has-success': addleagueForm.president.$valid}">
-				<label class="col-md-2 control-label" for="president">Président</label>
-				<div class="col-md-2">
-					<input id="president" type="text" class="form-control" name="president" ng-model="addleaguePresident" required/>
-					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addleagueForm.president.$valid"></span>
-					<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addleagueForm.president.$dirty && addleagueForm.president.$invalid"></span>
-					<span class="text-danger" ng-show="addleagueForm.president.$dirty && addleagueForm.president.$error.required">*Ce champ est obligatoire</span>
-				</div>
-			</div>
-			
+
+
 			<div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.mail.$dirty && addleagueForm.mail.$invalid, 'has-success': addleagueForm.mail.$valid}">
 				<label class="col-md-2 control-label" for="mail">Email</label>
 				<div class="col-md-2">
@@ -44,7 +35,7 @@
 					<span class="text-danger" ng-show="addleagueForm.mail.$dirty && addleagueForm.mail.$error.email">*L'email n'est pas valide</span>
 				</div>
 			</div>
-			
+
 			<div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.phone.$dirty && addleagueForm.phone.$invalid, 'has-success': addleagueForm.phone.$valid}">
 				<label class="col-md-2 control-label" for="phone">Téléphone</label>
 				<div class="col-md-2">
@@ -54,7 +45,7 @@
 					<span class="text-danger" ng-show="addleagueForm.phone.$dirty && addleagueForm.phone.$error.required">*Ce champ est obligatoire</span>
 				</div>
 			</div>
-			
+
 			<div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.logo.$dirty && addleagueForm.logo.$invalid, 'has-success': addleagueForm.logo.$valid}">
 				<label class="col-md-2 control-label" for="phone">Logo</label>
 				<div class="col-md-2">
@@ -68,7 +59,7 @@
 					<textarea id="description" class="form-control" name="description" ng-model="addleagueDescription" rows="8" required></textarea>
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<div class="col-md-offset-2 col-md-9">
 					<button type="submit" class="btn btn-default" ng-click="addleagueForm.$valid && ConfirmAddLeague()">

@@ -115,18 +115,18 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 	}
 ])
+.controller('LeagueController', ['$scope', '$routeParams', 'MdlService',
+	function($scope, $routeParams, MdlService) {
 
-
-
-.controller('LeagueController', ['$scope', '$routeParams',
-	function($scope, $routeParams, $window) {
-
-
-		$scope.leaguename = "LIGUE DES GROSSES BOULES";
-		$scope.leagueprez = "M. Grossesboules";
-		$scope.leaguemail = "grosses@boules.fr";
-		$scope.leaguephonenumber = "6666666666666";
-		$scope.leaguedesc = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		MdlService.getLeague($routeParams).then(function success(success){
+			$scope.leaguename = success.name;
+			$scope.leagueprez = success.president.name;
+			$scope.leaguemail = success.email;
+			$scope.leaguephonenumber = success.phoneNumber;
+			$scope.leaguedesc = success.description;
+		}, function error (err){
+			console.log(error);
+		});
 
 		$scope.leagueimages = [
 				"css/images/test1.jpg",
@@ -138,17 +138,22 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 
 
-.controller('AddLeagueController', ['$scope', '$routeParams', '$location',
-	function($scope, $routeParams, $location, $window) {
+.controller('AddLeagueController', ['$scope', '$routeParams', '$location', 'MdlService', '$cookieStore',
+	function($scope, $routeParams, $location, $window, MdlService, $cookieStore) {
+
 
 		$scope.ConfirmAddLeague = function()
 		{
 			if($scope.addleagueForm.$valid){
 				alert('Ligue créée');
 				$location.path('/league/1');
+				$scope.user = $cookieStore.get(User);
 				// Console.log while waiting for REST to handle/allow the request.
-				console.log($scope.addleagueName);
-				console.log($scope.addleaguePresident);
+				MdlService.postLeague($scope.user.id, $scope.addleagueName, $scope.addleagueMail, $scope.addleague, $scope.addleagueDescription).then(function (success){
+					//DOSUCCESS
+				}, function (error){
+					alert(error);
+				});
 			}
 			else{
 				alert('ERROR');
@@ -165,7 +170,6 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
     $scope.getleagueArray = MdlService.getLeagueList().then(function (success){
       $scope.leagueArray = success.leagues;
-      console.log(success.leagues);
     }, function(error){
       console.log(error);
       console.log("Error on promise");

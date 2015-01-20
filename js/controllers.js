@@ -11,7 +11,37 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 		}
 	}
 })
-
+.controller('EventController', ['$scope','$routeParams',
+	function($scope, $routeParams){
+		$scope.eventArray = [
+		{
+			"titre" : "fiuqngjhb",
+			"eventDate" : "RERERERE",
+			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
+		},
+		{
+			"titre" : "dezfezgez",
+			"eventDate" : "RERERERE",
+			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
+		},
+		{
+			"titre" : "htrjtegregre",
+			"eventDate" : "RERERERE",
+			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
+		},
+		{
+			"titre" : "dfhdgrerge",
+			"eventDate" : "RERERERE",
+			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
+		},
+		{
+			"titre" : "fhzefez",
+			"eventDate" : "RERERERE",
+			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
+		}
+		]
+	}
+	])
 .controller('IndexController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService', '$cookieStore', 'cookieService',
 	function($scope, $routeParams, $location, $window, $http, MdlService, $cookieStore, cookieService) {
 		$scope.tokenCookie = $cookieStore.get("Token");

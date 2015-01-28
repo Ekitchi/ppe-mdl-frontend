@@ -11,8 +11,8 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 		}
 	}
 })
-.controller('EventController', ['$scope','$routeParams',
-	function($scope, $routeParams){
+.controller('EventController', ['$scope','$routeParams', 'MdlService',
+	function($scope, $routeParams, MdlService){
 		$scope.eventArray = [
 		{
 			"titre" : "fiuqngjhb",
@@ -39,7 +39,16 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 			"eventDate" : "RERERERE",
 			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
 		}
-		]
+		];
+
+		$scope.load = MdlService.getEventsList()
+		.then(function success(data){
+			$scope.eventArray2 = data;
+			console.log($scope.eventArray2);
+		}, function error(error){
+			console.log(error);
+		});
+
 	}
 	])
 .controller('IndexController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService', '$cookieStore', 'cookieService',

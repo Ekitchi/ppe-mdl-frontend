@@ -101,6 +101,14 @@ angular.module('mdl.service', [])
 					url: symfonyUrl+'/leagues/',
 					data: "data="+jsonObj
 				});
+		},
+
+		getEventsList: function() {
+			return wrapped$httpPromise({
+				method:'GET',
+				headers: {'Content-Type': "application/x-www-form-urlencoded"},
+				url: symfonyUrl+'/events/'
+			})
 		}
 	};
 }]);

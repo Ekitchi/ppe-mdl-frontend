@@ -104,11 +104,19 @@ angular.module('mdl.service', [])
 		},
 
 		getEventsList: function() {
-			return wrapped$httpPromise({
+			var mockedEvents = [
+				{"titre" ="Teknival", date="2015-05-01", description="BOOM BOOM LE SON LA DROGUE MDRLOL"},
+				{"titre" ="Blackrock Foundry Mythic", date="2015-02-11", description="Rdrood 669.80 LF Blackhand BRF Mythic easyMode."},
+				{"titre" ="Hollande démission", date="2016-01-01", description="Allez quoi, steuplé."}
+			];
+			return mockedEvents;
+
+			//Waiting for an actual data return.
+			/*return wrapped$httpPromise({
 				method:'GET',
-				headers: {'Content-Type': "application/x-www-form-urlencoded"},
+				headers: {'Content-Type': "application/json"},
 				url: symfonyUrl+'/upcoming/'
-			});
+			});*/
 		}
 	};
 }]);

@@ -15,7 +15,8 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 	function($scope, $routeParams, MdlService, $cookieStore, cookieService){
 
 
-		/*MdlService.getEventsList().then( function success(data){
+		/* Will probably never work since Back colleagues can't set their work straight.
+		MdlService.getEventsList().then( function success(data){
 			$scope.eventArray2 = data;
 			console.log("coucou");
 		}, function error(error){
@@ -79,7 +80,13 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 .controller('AccueilController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService', '$cookieStore',
 	function($scope, $routeParams, $location, $window, $http, MdlService, $cookieStore) {
-
+						$scope.logo = function(){
+							MdlService.getHomeData().then(function success(data){
+								console.log(data);
+							}, function error (error){
+								console.log("error" + error);
+							});
+						};
 	}
 ])
 
@@ -89,15 +96,15 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
     	$scope.autoFill = function(){
     		var randomChar = Math.random().toString(36).substring(7);
-    		$scope.inscriptionName = "Poulet";
-    		$scope.inscriptionFirst_name = "Frit";
-    		$scope.inscriptionMail = "komjm"+randomChar+"@poulet.frit";
+    		$scope.inscriptionName = "MDL";
+    		$scope.inscriptionFirst_name = "User";
+    		$scope.inscriptionMail = "mdlMail"+randomChar+"@ppe.fr";
 			$scope.inscriptionDateofbirth = "1990-02-22";
 			$scope.inscriptionPhone = 0123456789;
-			$scope.inscriptionAddressField = "42 Rue des PlusDe255Caractères, première porte à gauche, après la cave remplie de pedoporn asiatique, code 1242 sur le digicode. 2e étage, 4eme porte à droite après les dealers de coke de Delarue et de Valls. Passez le code 'LICRA' à Moïse le gardien, et ça devrait faire plus de 255.";
+			$scope.inscriptionAddressField = "42 Rue de l'inscription factice. 75020, Paris";
 			console.log($scope.inscriptionAddressField.length);
 			$scope.inscriptionZipCode = "93270";
-			$scope.inscriptionCityField = "SEVRAK";
+			$scope.inscriptionCityField = "Paris";
     	};
 
 		$scope.ConfirmRegister = function()
@@ -150,7 +157,6 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 			console.log("ERROR \n");
 			console.log(error);
 		});
-
 		};
 
 
@@ -207,7 +213,6 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 .controller('ListLeaguesController', ['$scope', '$routeParams', '$window', 'MdlService',
 	function($scope, $routeParams, $window, MdlService){
-		// Mocked data
 
     $scope.getleagueArray = MdlService.getLeagueList().then(function (success){
       $scope.leagueArray = success.leagues;
@@ -235,9 +240,9 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 .controller('UserController', ['$scope', '$routeParams',
 	function($scope, $routeParams, $window) {
 
-		$scope.username = "Boule";
-		$scope.userfirstname = "LaGrosse";
-		$scope.usermail = "lagrosse@boule.fr";
+		$scope.username = "Random";
+		$scope.userfirstname = "User";
+		$scope.usermail = "randomuser@ppe.fr";
 		$scope.userdateofbirth = "12/10/1293";
 
 

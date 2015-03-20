@@ -101,16 +101,13 @@ angular.module('mdl.service', [])
 					url: symfonyUrl+'/leagues/',
 					data: "data="+jsonObj
 				});
-		},
-
-		getEventsList: function() {
-			//Waiting for an actual data return.
-			/*return wrapped$httpPromise({
-				method:'GET',
-				headers: {'Content-Type': "application/json"},
-				url: symfonyUrl+'/upcoming/'
-			});*/
 		}
+
+		/*getHomeData: function(){
+			method: 'GET',
+			headers: {'Content-Type': "application/x-www-form-urlencoded"},
+			url: symfonyUrl+'/home/'
+		}*/
 
 	};
 }]);

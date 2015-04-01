@@ -60,6 +60,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 		$scope.logged = cookieService.getLoggedStatus;
 
 		$scope.cookieCheck = function(){
+			// On vérifie l'existence du Token-cookie afin de vérifier si l'utilisateur est déjà connecté.
 			if($scope.tokenCookie != null){
 				$scope.logged = true;
 			}
@@ -69,6 +70,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 		};
 
 		$scope.disconnect = function(){
+			// Déconnexion, suppression du cookie Token et User.
 			$cookieStore.remove("Token");
 			$cookieStore.remove("User");
 			cookieService.setLoggedStatus(false);
@@ -95,6 +97,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 
     	$scope.autoFill = function(){
+				// Remplissage des champs du formulaire avec un random sur l'email pour garantir l'unicité.
     		var randomChar = Math.random().toString(36).substring(7);
     		$scope.inscriptionName = "MDL";
     		$scope.inscriptionFirst_name = "User";
@@ -109,9 +112,8 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 		$scope.ConfirmRegister = function()
 		{
-			if ($scope.registerForm.password.$viewValue == $scope.registerForm.passwordConfirm.$viewValue && $scope.registerForm.$valid){
-
-				MdlService.postUser($scope.inscriptionName, $scope.inscriptionFirst_name, $scope.inscriptionMail, $scope.registerForm.password.$viewValue, $scope.inscriptionDateofbirth, $scope.inscriptionPhone, $scope.inscriptionAddressField, $scope.inscriptionZipCode, $scope.inscriptionCityField)
+					//Récupération des éléments du formulaire, envoi en DB via l'API REST (voir services.js, return postUser)
+				MdlService.postUser($scope.inscriptionName, $scope.inscriptionFirst_name, $scope.inscriptionMail, $scope.inscriptionPassword, $scope.inscriptionDateofbirth, $scope.inscriptionPhone, $scope.inscriptionAddressField, $scope.inscriptionZipCode, $scope.inscriptionCityField)
 				.then(function success(success){
 				$location.path('/connexion');
 				console.log('Okay');
@@ -120,11 +122,6 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 				console.log('Error accessing the REST Service. Please review the error below. \n');
 				console.log(error);
             	});
-        }
-        else{
-        	console.log("ERROR. Please review the informations.");
-
-        }
     };
  }
 ])
@@ -134,7 +131,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 .controller('ConnexionController', ['$scope', '$routeParams','$location', '$http', '$window', 'MdlService', '$cookieStore', 'cookieService',
 	function($scope, $routeParams, $location, $http, $window, MdlService, $cookieStore, cookieService) {
 
-		// Asking REST Service if the login credentials are valid. Handle the HTTP Response.
+		// Vérification de la validité du login. On attend un code HTTP 200 dans la réponse afin de créer les cookies 'Token' et 'User' avec les informations retournées par l'API REST
 		$scope.checkLogin = function()
 		{
 		MdlService.login($scope.mail, $scope.password)
@@ -142,13 +139,13 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 			console.log(success);
 			if (success.code == 200) {
 
-			//This is the var to call for the logged user's token.
+			// Création des cookies
 			$cookieStore.put("Token", success.token.token);
 			$cookieStore.put("User", success.token.user);
 			console.log($cookieStore.get("Token"));
 			console.log($cookieStore.get("User"));
 			$scope.logged = cookieService.setLoggedStatus(true);
-			// Return to homepage. Maybe it's more pertinent to redirect to "Mon compte" part?
+			// On redirige vers l'accueil et on recharge pour prendre en compte les cookies fraichement créés.
 			$location.path('/');
 			location.reload();
 			}
@@ -164,14 +161,17 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 ])
 .controller('LeagueController', ['$scope', '$routeParams', 'MdlService',
 	function($scope, $routeParams, MdlService) {
-
-		MdlService.getLeague($routeParams).then(function success(success){
+		$scope.idLeague = $routeParams;
+		console.log($scope.idLeague);
+		MdlService.getLeague($scope.idLeague.id).then( function success(success) {
 			$scope.leaguename = success.name;
 			$scope.leagueprez = success.president.name;
 			$scope.leaguemail = success.email;
 			$scope.leaguephonenumber = success.phoneNumber;
 			$scope.leaguedesc = success.description;
-		}, function error (err){
+
+		},function error(err){
+			console.log($routeParams);
 			console.log(error);
 		});
 
@@ -213,7 +213,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 .controller('ListLeaguesController', ['$scope', '$routeParams', '$window', 'MdlService',
 	function($scope, $routeParams, $window, MdlService){
-
+		// Récupération des ligues.
     $scope.getleagueArray = MdlService.getLeagueList().then(function (success){
       $scope.leagueArray = success.leagues;
     }, function(error){
@@ -225,14 +225,19 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 
 
-.controller('ProfilController', ['$scope', '$routeParams',
-	function($scope, $routeParams, $window) {
+.controller('ProfilController', ['$scope', '$routeParams', '$cookieStore',
+	function($scope, $routeParams, $cookieStore) {
 
-		$scope.profilName = "Nom de l'utilisateur";
-		$scope.profilFirst_name = "Prénom de l'utilisateur";
-		$scope.profilMail = "Emailde@lutisateur";
-		$scope.profilDateofbirth = "66/66/6666";
-		$scope.profilPhone = 0623381821;
+		$scope.user = $cookieStore.get("User");
+		$scope.userGroupe = $scope.user.status.name;
+		$scope.userStatusID = $scope.user.status.id;
+
+		if($scope.userStatusID == 3){
+			$scope.userRights = "les droits d'écriture sur la ligue à laquelle vous êtes affiliée.";
+		};
+		if($scope.userStatusID = 1){
+			$scope.userRights = "les droits complets sur l'ensemble du site de la MDL.";
+		}
 	}
 ])
 

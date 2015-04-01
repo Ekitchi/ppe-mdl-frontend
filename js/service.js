@@ -23,18 +23,18 @@ angular.module('mdl.service', [])
 
 	//Here are your multiple requests that will establish communication with the REST service.
 	return {
-	//We'll call this       with those params
+	//Fonction à appeler       Paramètres attendus
 		postUser : function(firstNameValue, lastNameValue, emailValue, passwordValue, dateOfBirthValue, phoneValue, addressValue, zipCodeValue, cityValue ) {
-		// Ugliest JSON maker I've ever seen
+		// Création de l'objet JSON à remplir
 		var obj = {};
-		// Checking is address' field is equal or more than 255 chars to avoid MySQL errors by trying to put a 255+ varchar String.
-		// If true, will put the 256e & + char(s) into second field.
+		// Vérification de la taille du champ adresse si >255 afin d'éviter une erreur MySQL en envoyant un champ à +255 chars.
+		// Dans ce cas, le reste de l'adresse est placée dans address_field_2
 		if ((addressValue.length) > 254){
 			var partAddressValue = addressValue.match(/[\s\S]{1,254}/g) || [];
 			obj.address_field_1 = partAddressValue[0];
 			obj.address_field_2 = partAddressValue[1];
 		}
-		// If not, will send one field, and set the 2nd to null. Null factor is handled by REST service.
+		// Sinon, envoi d'un champ, le 2e étant null.
 		else {
 			obj.address_field_1 = addressValue;
 			obj.address_field_2 = null;
@@ -47,11 +47,11 @@ angular.module('mdl.service', [])
 		obj.phone_number = "33"+phoneValue;
 		obj.zip_code = zipCodeValue;
 		obj.city = cityValue;
-		// Stringify the JSON Object to be understand by REST Service.
+		// Transformation de l'objet JSON en chaîne de caractères pour être compris par le REST.
 		var jsonObj = JSON.stringify(obj);
 
 
-		// Actual request to REST Service, sending the Stringified JSON Object to be added as a new User.
+		// Envoie de la requête REST de l'objet JSON "stringifié", pour ajouter l'utilisateur en base.
         return wrapped$httpPromise({
             method: 'POST',
             headers: {'Content-Type': "application/x-www-form-urlencoded"},

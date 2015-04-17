@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>listleagues</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body ng-controller="ListLeaguesController">
+		<h1 class="page-header">Liste des Ligues de Lorraine</h1>
+		<br/>
+		<br/>
+
+		<div class="container" ng-repeat="league in leagueArray">
+
+			<h3><a href="#/league/{{league.id}}">{{league.name}}</a></h3>
+			<table class="table table-responsive table-hover" id="listleague">
+				<tr>
+					<th>Président:</th>
+					<td><a href="/user/{{id}}"> {{league.president.first_name}} {{league.president.name}}</a></td>
+				</tr>
+				<tr>
+					<th>Email:</th>
+					<td>{{league.mail}}</td>
+				</tr>
+				<tr>
+					<th>Téléphone:</th>
+					<td>{{league.phone_number}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

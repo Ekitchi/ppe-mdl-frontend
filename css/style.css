@@ -63,8 +63,10 @@ fieldset.login_form {
   }
 }
 .fa {
-  margin-left: 50%;
-  margin-right: 50%;
+	/* Corrige l'affichage des flèches du header
+	margin-left: 50%;
+	margin-right: 50%;
+	*/
 }
 .pagination {
   text-align: center;

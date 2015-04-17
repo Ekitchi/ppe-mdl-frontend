@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body ng-controller="UserController">
+		<h1 class="page-header">Profil de {{username}} {{userfirstname}}</h1>
+		<br/>
+		<br/>
+
+		<table class="table table-hover table-responsive" id="userinfos" style="width:30%;">
+			<tr>
+				<th>Nom:</th>
+				<td>{{username}}</td>
+			</tr>
+			<tr>
+				<th>Prénom:</th>
+				<td>{{userfirstname}}</td>
+			</tr>
+			<tr>
+				<th>Email:</th>
+				<td>{{usermail}}</td>
+			</tr>
+			<tr>
+				<th>Date de naissance:</th>
+				<td>{{userdateofbirth}}</td>
+			</tr>
+		</table>
+	</body>
+</html>

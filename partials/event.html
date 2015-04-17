@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/sidebar.css" type="text/css" rel="stylesheet" />
+	</head>
+
+	<body ngcontroller="EventController">
+		<h1 class="page-header">Evenements</h1>
+		<br/>
+		<br/>
+		<div class="container">
+		    <div class="row">    
+		        <div class="col-xs-8 col-xs-offset-2">
+				    <div class="input-group">
+		                
+		                <input type="hidden" name="search_param" value="all" id="search_param">         
+		                <input type="text" class="form-control" name="x" placeholder="Rechercher Evenement">
+		                <span class="input-group-btn">
+		                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+		                </span>
+		            </div>
+		        </div>
+			</div>
+		</div>
+		<div class="col-md-10 blogShort" ng-repeat="event in eventArray">
+	        <h1>{{event.titre}}</h1>
+		        <img src="http://www.kaczmarek-photo.com/wp-content/uploads/2012/06/guinnes-150x150.jpg" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
+		         
+		            
+		        <article>
+		        		<p>
+		            {{event.description}}    
+		            	</p>
+		            	{{event.eventDate}}
+		        </article>
+            </div>
+		<hr>
+	</body>
+</html>

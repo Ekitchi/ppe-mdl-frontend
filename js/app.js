@@ -47,6 +47,10 @@ angular.module('MDL', ['ngRoute', 'mdl.controllers', 'mdl.service','ui.bootstrap
                 templateUrl: 'partials/event.html',
                 controller: 'EventController',
             });
+            $routeProvider.when('/addevent', {
+                templateUrl: 'partials/addevent.html',
+                controller: 'AddEventController',
+            });
 
         }
     ]);

@@ -220,24 +220,40 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
       console.log(error);
       console.log("Error on promise");
     });
+
 	}
 ])
 
 
 
-.controller('ProfilController', ['$scope', '$routeParams', '$cookieStore',
-	function($scope, $routeParams, $cookieStore) {
+.controller('ProfilController', ['$scope', '$routeParams', '$cookieStore','MdlService',
+	function($scope, $routeParams, $cookieStore, MdlService) {
+		$scope.userCookie = $cookieStore.get('User');
 
-		$scope.user = $cookieStore.get("User");
-		$scope.userGroupe = $scope.user.status.name;
-		$scope.userStatusID = $scope.user.status.id;
+		MdlService.getUserData($scope.userCookie.id).then(function (success){
+			var userInfo = success.user;
+			console.log(userInfo);
+			$scope.profilFirst_name = userInfo.first_name;
+			$scope.profilName = userInfo.name;
+			$scope.profilMail = userInfo.email;
+			$scope.profilDateOfBirth = userInfo.date_of_birth.date;
+			$scope.profilPhone = userInfo.phone_number;
+		}, function(error){
+			console.log(error);
+			console.log("Error on promise");
+		});
 
-		if($scope.userStatusID == 3){
-			$scope.userRights = "les droits d'écriture sur la ligue à laquelle vous êtes affiliée.";
+		$scope.update = function(){
+			MdlService.updateUser($scope.profilFirst_name, $scope.profilName, $scope.profilMail, $scope.date_of_birth, $scope.phone_number, $scope.profilName, $scope.profilePassword)
+				.then(function sucess(success){
+					if(success.code == 200){
+						//Redirect
+					}
+				}, function error(error){
+					alert("Erreur dans la mise à jour de vos informations.");
+					console.log(error);
+				});
 		};
-		if($scope.userStatusID = 1){
-			$scope.userRights = "les droits complets sur l'ensemble du site de la MDL.";
-		}
 	}
 ])
 

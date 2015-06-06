@@ -5,7 +5,7 @@ angular.module('mdl.service', [])
 
 
 	// URL var, to change for dev purposes. Change it when you're pulling from another dev, but specifiy the URL change in the commit.
-	var symfonyUrl = 'http://localhost:8888/PPE1/Symfony/web/app_dev.php';
+	var symfonyUrl = 'http://m2l.erwhann-rouge.fr/web/app_dev.php';
 
 	// This kinda initiate the whole promise thing. Don't touch it.
 	function wrapped$httpPromise(httpCallConfig) {
@@ -68,7 +68,6 @@ angular.module('mdl.service', [])
 				url: symfonyUrl+'/user/'+login+'/'+password
 			});
 		},
-
 		getLeagueList: function(){
 			return wrapped$httpPromise({
 				method: 'GET',
@@ -84,7 +83,42 @@ angular.module('mdl.service', [])
 				url: symfonyUrl+'/league/'+league_id
 			});
 		},
+		getUserData : function(id){
+			return wrapped$httpPromise({
+				method: 'GET',
+				headers: {'Content-Type': "application/x-www-form-urlencoded"},
+				url: symfonyUrl+'/user/'+id
+			});
+		},
+		updateUser: function(firstNameValue, lastNameValue, emailValue, passwordValue, dateOfBirthValue, phoneValue) {
+			// Création de l'objet JSON à remplir
+			var obj = {};
+			obj.name = lastNameValue;
+			obj.first_name = firstNameValue;
+			obj.email = emailValue;
+			obj.password = passwordValue;
+			obj.date_of_birth = dateOfBirthValue;
+			obj.phone_number = "33"+phoneValue;
+			// Transformation de l'objet JSON en chaîne de caractères pour être compris par le REST.
+			var jsonObj = JSON.stringify(obj);
 
+
+			// Envoie de la requête REST de l'objet JSON "stringifié", pour ajouter l'utilisateur en base.
+			return wrapped$httpPromise({
+				method: 'UPDATE',
+				headers: {'Content-Type': "application/x-www-form-urlencoded"},
+				url: symfonyUrl+'/user/',
+				data: "data="+jsonObj
+			});
+		},
+
+		getEventsList: function(){
+			return wrapped$httpPromise({
+				method: 'GET',
+				headers: {'Content-Type': "application/x-www-form-urlencoded"},
+				url: symfonyUrl+'/upcoming/'
+			});
+		},
 		postLeague: function(id_president, name, email, phoneNumber, description){
 			var obj = {};
 			obj.id_president = id_president;

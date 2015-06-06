@@ -26,19 +26,22 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 		$scope.eventArray = [
 		{
-			"titre" : "fiuqngjhb",
-			"eventDate" : "RERERERE",
-			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
+			"titre" : "Jolie titre",
+            "auteur" : "Bibi",
+			"eventDate" : "12/04/67",
+			"description" : "Jolie description"
 		},
 		{
-			"titre" : "dezfezgez",
-			"eventDate" : "RERERERE",
-			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
+			"titre" : "Titre magnifique",
+            "auteur" : "Moi",
+			"eventDate" : "12/03/12",
+			"description" : "Description magnifique"
 		},
 		{
-			"titre" : "htrjtegregre",
-			"eventDate" : "RERERERE",
-			"description" : "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
+			"titre" : "PPE EXAM EVENT",
+            "auteur" : "Travailleur",
+			"eventDate" : "03/04/2015",
+			"description" : "Exam de ppe"
 		},
 		{
 			"titre" : "dfhdgrerge",
@@ -294,4 +297,14 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
             });
         }
     };
-}]);
+}])
+
+
+
+
+.controller('AddEventController', ['$scope', '$routeParams',
+    function($scope, $routeParams, $window) {
+
+
+    }
+]);

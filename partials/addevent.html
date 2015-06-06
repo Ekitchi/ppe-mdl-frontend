@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ajouter un évènement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<h1 class="page-header">Ajouter un évènement</h1>
+<br/>
+<br/>
+
+
+<form class="form-horizontal" name="addleagueForm" ng-controller="AddEventController as addevent" method="post">
+
+    <div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.name.$dirty && addleagueForm.name.$invalid, 'has-success': addleagueForm.name.$valid}">
+        <label class="col-md-2 control-label" for="name">Titre de l'évènement</label>
+        <div class="col-md-2">
+            <input id="name" type="text" class="form-control" name="name" ng-model="addeventName" required/>
+            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addleagueForm.name.$valid"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addleagueForm.name.$dirty && addleagueForm.name.$invalid"></span>
+            <span class="text-danger" ng-show="addleagueForm.name.$dirty && addleagueForm.name.$error.required">*Ce champ est obligatoire</span>
+        </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.auteur.$dirty && addleagueForm.auteur.$invalid, 'has-success': addleagueForm.auteur.$valid}">
+        <label class="col-md-2 control-label" for="auteur">Auteur</label>
+        <div class="col-md-2">
+            <input id="auteur" type="text" class="form-control" name="auteur" ng-model="addeventAuteur" required/>
+            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addleagueForm.auteur.$valid"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addleagueForm.auteur.$dirty && addleagueForm.auteur.$invalid"></span>
+            <span class="text-danger" ng-show="addleagueForm.auteur.$dirty && addleagueForm.auteur.$error.required">*Ce champ est obligatoire</span>
+        </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.logo.$dirty && addleagueForm.logo.$invalid, 'has-success': addleagueForm.logo.$valid}">
+        <label class="col-md-2 control-label" for="logo">Image</label>
+        <div class="col-md-2">
+            <input id="logo" type="file" name="logo" ng-model="addleagueLogo" required/>
+        </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.date.$dirty && addleagueForm.date.$invalid, 'has-success': addleagueForm.date.$valid}">
+        <label class="col-md-2 control-label" for="date">Date</label>
+        <div class="col-md-2">
+            <input id="date" type="date" class="form-control" name="date" ng-model="addeventDate" required/>
+            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addleagueForm.date.$valid"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addleagueForm.date.$dirty && addleagueForm.date.$invalid"></span>
+            <span class="text-danger" ng-show="addleagueForm.date.$dirty && addleagueForm.date.$error.required">*Ce champ est obligatoire</span>
+            <span class="text-danger" ng-show="addleagueForm.date.$dirty && addleagueForm.date.$error.date">*Le format de la date n'est pas valide</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="description">Description de l'évènement</label>
+        <div class="col-md-4">
+            <textarea id="description" class="form-control" name="description" ng-model="addleagueDescription" rows="8" required></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-9">
+            <button type="submit" class="btn btn-default" ng-click="addleagueForm.$valid && ConfirmAddLeague()">
+                Ajouter l'évènement
+            </button>
+        </div>
+    </div>
+
+</form>-->
+
+</body>
+</html>

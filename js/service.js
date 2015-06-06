@@ -5,7 +5,11 @@ angular.module('mdl.service', [])
 
 
 	// URL var, to change for dev purposes. Change it when you're pulling from another dev, but specifiy the URL change in the commit.
+<<<<<<< HEAD
 	var symfonyUrl = 'http://m2l.erwhann-rouge.fr/web/app_dev.php';
+=======
+	var symfonyUrl = 'http://localhost/projects/PPE/ppe-mdl-frontend/';
+>>>>>>> dae0485b9c7cd14e85cc72c8c6da38a77cc2491a
 
 	// This kinda initiate the whole promise thing. Don't touch it.
 	function wrapped$httpPromise(httpCallConfig) {

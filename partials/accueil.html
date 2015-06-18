@@ -7,30 +7,36 @@
     <link rel="stylesheet" href="">
 </head>
 
-<body>
+<body ng-controller="AccueilController">
     <div class="col-mg-4 col-lg-6 col-lg-offset-4">
         <h1>Bienvenue sur le site de la MDL</h1>
         <div ng-repeat="logo in logo"></div>
-        <img class="col-mg-4 col-lg-6 col-lg-offset-1" src="http://placehold.it/300x250" />
+        <img class="col-mg-4 col-lg-6 col-lg-offset-1" src="{{accueillogo}}" />
     </div>
     <div class="col-lg-8 col-lg-offset-2">
-        <p>Cumque pertinacius ut legum gnarus accusatorem flagitaret atque sollemnia, doctus id Caesar libertatemque superbiam ratus tamquam obtrectatorem audacem excarnificari praecepit, qui ita evisceratus ut cruciatibus membra deessent, inplorans caelo iustitiam, torvum renidens fundato pectore mansit inmobilis nec se incusare nec quemquam alium passus et tandem nec confessus nec confutatus cum abiecto consorte poenali est morte multatus. et ducebatur intrepidus temporum iniquitati insultans, imitatus Zenonem illum veterem Stoicum qui ut mentiretur quaedam laceratus diutius, avulsam sedibus linguam suam cum cruento sputamine in oculos interrogantis Cyprii regis inpegit.</p>
+        <!--<p>Cumque pertinacius ut legum gnarus accusatorem flagitaret atque sollemnia, doctus id Caesar libertatemque superbiam ratus tamquam obtrectatorem audacem excarnificari praecepit, qui ita evisceratus ut cruciatibus membra deessent, inplorans caelo iustitiam, torvum renidens fundato pectore mansit inmobilis nec se incusare nec quemquam alium passus et tandem nec confessus nec confutatus cum abiecto consorte poenali est morte multatus. et ducebatur intrepidus temporum iniquitati insultans, imitatus Zenonem illum veterem Stoicum qui ut mentiretur quaedam laceratus diutius, avulsam sedibus linguam suam cum cruento sputamine in oculos interrogantis Cyprii regis inpegit.</p>-->
+        <p>{{accueildescription}}</p>
     </div>
 
+
+
     <div class="col-lg-8 col-lg-offset-2">
-        <h3>Quelques liens utiles</h3>
         <div class="list-group">
-            <a href="#/inscription" class="list-group-item">
+            <a href="" class="list-group-item" ng-click="disconnect()" ng-show="logged">
+                <h4 class="list-group-item-heading">Se déconnecter</h4>
+                <p class="list-group-item-text">N'oubliez pas de vous déconnecter avant de quittez le site !</p>
+            </a>
+            <a href="#/connexion" class="list-group-item" ng-show="!logged">
+                <h4 class="list-group-item-heading">Se connecter</h4>
+                <p class="list-group-item-text">Déjà membre ? Connecter vous à vôtre espace personnel</p>
+            </a>
+            <a href="#/inscription" class="list-group-item" ng-show="!logged">
                 <h4 class="list-group-item-heading">S'inscrire</h4>
                 <p class="list-group-item-text">Afin de profiter pleinement de l'expérience utilisateur offerte sur le site de la MDL, il est fortement recommandé de s'inscrire via le formulaire fourni. Vous pourrez ainsi être rattaché à une ligue si vous êtes membre de cette dernière.</p>
             </a>
             <a href="#/leagues" class="list-group-item">
                 <h4 class="list-group-item-heading">Rechercher une ligue</h4>
                 <p class="list-group-item-text">Cette page vous permettra de rechercher une ligue parmi les Ligues de Lorainne référencées sur le site. Vous aurez accès aux différentes informations et actualités la concernant.</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">SOS Partenaire</h4>
-                <p class="list-group-item-text">Ce module permet de créer et rechercher des partenaires pour vos matchs, rencontres ou évèénements divers rattachés à un sport pratiqué dans une des ligues de Lorainne.</p>
             </a>
         </div>
     </div>

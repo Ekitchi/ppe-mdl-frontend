@@ -163,13 +163,14 @@ angular.module('mdl.service', [])
                         url: symfonyUrl + '/event/',
                         data: "data=" + jsonObj
                     });
-                }
-
-                /*getHomeData: function(){
-                 method: 'GET',
-                 headers: {'Content-Type': "application/x-www-form-urlencoded"},
-                 url: symfonyUrl+'/home/'
-                 }*/
+                },
+                getHomeData: function(){
+                    return wrapped$httpPromise({
+                        method: 'GET',
+                        headers: {'Content-Type': "application/x-www-form-urlencoded"},
+                        url: symfonyUrl+'/home/'
+                    })
+                 }
 
             };
         }]);

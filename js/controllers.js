@@ -84,13 +84,13 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
     .controller('AccueilController', ['$scope', '$routeParams', '$location', '$window', '$http', 'MdlService', '$cookieStore',
         function ($scope, $routeParams, $location, $window, $http, MdlService, $cookieStore) {
-            $scope.logo = function () {
                 MdlService.getHomeData().then(function success(data) {
+                    $scope.accueildescription = data.home.description;
+                    $scope.accueillogo = data.home.url_logo;
                     console.log(data);
                 }, function error(error) {
                     console.log("error" + error);
                 });
-            };
         }
     ])
 

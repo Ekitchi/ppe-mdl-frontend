@@ -148,6 +148,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
             MdlService.getLeague($scope.idLeague.id).then(function success(success) {
                 $scope.leaguename = success.league.name;
                 $scope.leagueprez = success.league.president.name;
+                $scope.leagueprezf = success.league.president.first_name;
                 $scope.leaguemail = success.league.email;
                 $scope.leaguephonenumber = success.league.phone_number;
                 $scope.leaguedesc = success.league.description;

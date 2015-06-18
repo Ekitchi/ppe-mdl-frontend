@@ -152,6 +152,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
                 $scope.leaguemail = success.league.email;
                 $scope.leaguephonenumber = success.league.phone_number;
                 $scope.leaguedesc = success.league.description;
+                $scope.leagueprezid = success.league.president.id;
                 console.log(success);
 
             }, function error(err) {

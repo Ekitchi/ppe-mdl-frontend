@@ -6,7 +6,7 @@
 		<title>League</title>
 	</head>
 
-	<body ng-controller="LeagueController as league">
+	<body ng-controller="LeagueController">
 
 		<div id="leaguewrapper">
 			<span id="leaguename"><h1>{{leaguename}}</h1></span>
@@ -20,7 +20,7 @@
 			<table class="table table-responsive table-hover" id="leagueinfos">
 				<tr>
 					<th>Président de la ligue:</th>
-					<td><a href="/user/{{id}}">{{leagueprezf}} {{leagueprez}}</a></td>
+					<td><a href="#/user/{{leagueprezid}}">{{leagueprezf}} {{leagueprez}}</a></td>
 				</tr>
 				<tr>
 					<th>Email:</th>

@@ -224,8 +224,8 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
     ])
 
 
-    .controller('ProfilController', ['$scope', '$routeParams', '$cookieStore', 'MdlService',
-        function ($scope, $routeParams, $cookieStore, MdlService) {
+    .controller('ProfilController', ['$scope', '$routeParams', '$http', '$cookieStore', 'MdlService',
+        function ($scope, $routeParams, $http, $cookieStore, MdlService) {
             $scope.userCookie = $cookieStore.get('User');
 
             MdlService.getUserData($scope.userCookie.id).then(function (success) {
@@ -242,9 +242,10 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
             });
 
             $scope.update = function () {
-                MdlService.updateUser($scope.profilFirst_name, $scope.profilName, $scope.profilMail, $scope.date_of_birth, $scope.phone_number, $scope.profilName, $scope.profilePassword)
-                    .then(function sucess(success) {
+                MdlService.updateUser($scope.profilFirst_name, $scope.profilName, $scope.profilMail, $scope.profilDateofbirth, $scope.profilName, $scope.profilName, $scope.profilPassword)
+                    .then(function success(success) {
                         if (success.code == 200) {
+                            console.log(success);
                             //Redirect
                         }
                     }, function error(error) {

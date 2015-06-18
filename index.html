@@ -50,7 +50,10 @@
 								<a href="#/inscription"><span class="glyphicon glyphicon-floppy-save" ></span> S'inscrire</a>
 							</li>
 							<li ng-show="logged">
-								<a href="#/profil"><span class="glyphicon glyphicon-log-in" ></span> Mon Compte </a>
+								<a href="#/profil"><span class="glyphicon glyphicon-user" ></span> Mon Compte </a>
+							</li>
+							<li ng-show="logged">
+								<a href="" ng-click="disconnect()"><span class="glyphicon glyphicon-log-out" ></span> Se déconnecter </a>
 							</li>
 						</ul>
 					</div>
@@ -62,6 +65,9 @@
 						<ul class="nav" id="side-menu">
 							<li>
 								<a href="#">Accueil</a>
+							</li>
+							<li ng-show="!logged">
+								<a href="#/connexion">Se connecter<span></span></a>
 							</li>
 							<li ng-show="logged">
 								<a href="#"> Mon compte<span class="fa arrow"></span></a>
@@ -103,18 +109,6 @@
 									</li>
 									<li>
 										<a href="#/addevent">Ajouter un évènement</a>
-									</li>
-									<li>
-										<a href="#">??? <span class="fa arrow"></span></a>
-										<ul class="nav nav-third-level">
-											<li>
-												<a href="#">???</a>
-											</li>
-											<li>
-												<a href="#">???</a>
-											</li>
-										</ul>
-										<!-- /.nav-third-level -->
 									</li>
 								</ul>
 								<!-- /.nav-second-level -->

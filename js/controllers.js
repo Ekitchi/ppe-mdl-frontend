@@ -145,8 +145,8 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
                             console.log($cookieStore.get("User"));
                             $scope.logged = cookieService.setLoggedStatus(true);
                             // On redirige vers l'accueil et on recharge pour prendre en compte les cookies fraichement créés.
-                            location.reload();
                             $location.path('/');
+                            location.reload();
                         }
                     },
                     function error(error) {

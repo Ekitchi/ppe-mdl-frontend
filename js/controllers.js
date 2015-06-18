@@ -191,11 +191,11 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
                 console.log(error);
             });
 
-            $scope.leagueimages = [
+            /*$scope.leagueimages = [
                 "css/images/test1.jpg",
                 "css/images/test2.jpg",
                 "css/images/test3.jpg"
-            ];
+            ];*/
         }
     ])
 

@@ -179,11 +179,12 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
             $scope.idLeague = $routeParams;
             console.log($scope.idLeague);
             MdlService.getLeague($scope.idLeague.id).then(function success(success) {
-                $scope.leaguename = success.name;
-                $scope.leagueprez = success.president.name;
-                $scope.leaguemail = success.email;
-                $scope.leaguephonenumber = success.phoneNumber;
-                $scope.leaguedesc = success.description;
+                $scope.leaguename = success.league.name;
+                $scope.leagueprez = success.league.president.name;
+                $scope.leaguemail = success.league.email;
+                $scope.leaguephonenumber = success.league.phone_number;
+                $scope.leaguedesc = success.league.description;
+                console.log(success);
 
             }, function error(err) {
                 console.log($routeParams);
@@ -248,7 +249,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
                 $scope.profilFirst_name = userInfo.first_name;
                 $scope.profilName = userInfo.name;
                 $scope.profilMail = userInfo.email;
-                $scope.profilDateOfBirth = userInfo.date_of_birth.date;
+                $scope.profilDateofbirth = userInfo.date_of_birth.date;
                 $scope.profilPhone = userInfo.phone_number;
             }, function (error) {
                 console.log(error);

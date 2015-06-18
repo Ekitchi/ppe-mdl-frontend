@@ -32,29 +32,15 @@
 
 
         <div class="container" ng-repeat="event in eventsArray">
-            <a href="{{event.id}}"><h2>{{event.titre}}</h2></a>
-            <h4>du {{event.date}}</h4>
+            <a href="{{event.id}}"> <h2>{{event.titre}}</h2> </a>
+            <i><h4>le {{event.date}}</h4></i>
             <p>{{event.description}}</p>
             <br/>
+            <div style="border-bottom: 1px solid #eee;"></div>
             <br/>
         </div>
 
 
 
-
-        <!--
-        <div class="col-md-10 blogShort" ng-repeat="event in eventArray">
-            <h1>{{event.titre}}</h1><h5>de {{event.auteur}} {{event.eventDate}}</h5>
-            <img src="http://www.kaczmarek-photo.com/wp-content/uploads/2012/06/guinnes-150x150.jpg" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
-
-
-        <article>
-            <p>
-                {{event.description}}
-            </p>
-
-        </article>
-        </div>
-        <hr>-->
     </body>
 </html>

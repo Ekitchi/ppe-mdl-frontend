@@ -91,6 +91,13 @@ angular.module('mdl.service', [])
                         url: symfonyUrl + '/upcoming/'
                     });
                 },
+                getEvent: function (event_id) {
+                  return wrapped$httpPromise({
+                      method: 'GET',
+                      headers: {'Content-Type': "application/x-www-form-urlencoded"},
+                      url: symfonyUrl + '/upcoming/event/' + event_id
+                  });
+                },
                 getUserData: function (id) {
                     return wrapped$httpPromise({
                         method: 'GET',
@@ -117,14 +124,6 @@ angular.module('mdl.service', [])
                         headers: {'Content-Type': "application/x-www-form-urlencoded"},
                         url: symfonyUrl + '/user/',
                         data: "data=" + jsonObj
-                    });
-                },
-
-                getEventsList: function () {
-                    return wrapped$httpPromise({
-                        method: 'GET',
-                        headers: {'Content-Type': "application/x-www-form-urlencoded"},
-                        url: symfonyUrl + '/upcoming/'
                     });
                 },
                 postLeague: function (id_president, name, email, phoneNumber, description) {

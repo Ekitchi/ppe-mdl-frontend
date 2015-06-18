@@ -25,50 +25,17 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
         }
     ])
 
-    .controller('EventController', ['$scope', '$routeParams', 'MdlService', '$cookieStore', 'cookieService',
-        function ($scope, $routeParams, MdlService, $cookieStore, cookieService) {
-
-
-            /* Will probably never work since Back colleagues can't set their work straight.
-             MdlService.getEventsList().then( function success(data){
-             $scope.eventArray2 = data;
-             console.log("coucou");
-             }, function error(error){
-             console.log("FDP");
-             console.log(error);
-             });*/
-
-            $scope.eventArray = [
-                {
-                    "titre": "Jolie titre",
-                    "auteur": "Bibi",
-                    "eventDate": "12/04/67",
-                    "description": "Jolie description"
-                },
-                {
-                    "titre": "Titre magnifique",
-                    "auteur": "Moi",
-                    "eventDate": "12/03/12",
-                    "description": "Description magnifique"
-                },
-                {
-                    "titre": "PPE EXAM EVENT",
-                    "auteur": "Travailleur",
-                    "eventDate": "03/04/2015",
-                    "description": "Exam de ppe"
-                },
-                {
-                    "titre": "dfhdgrerge",
-                    "eventDate": "RERERERE",
-                    "description": "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
-                },
-                {
-                    "titre": "fhzefez",
-                    "eventDate": "RERERERE",
-                    "description": "rzfzfezfezdzadzadzafbuagfuezhfuegfizeviezufhizeugfuzeigfueizefuzgfuezifuezifgu"
-                }
-            ];
-
+    .controller('EventController', ['$scope', '$routeParams', 'MdlService',
+        function ($scope, $routeParams, MdlService) {
+            $scope.idEvent = $routeParams;
+            console.log($scope.idEvent);
+            MdlService.getEvent($scope.idEvent.id).then(function success (success) {
+                $scope.eventname = success.event.titre;
+                $scope.eventdesc = success.event.description;
+                $scope.leaguename = success.event.ligue.name;
+                $scope.eventdate = success.event.date;
+                console.log(success);
+            })
         }
     ])
 

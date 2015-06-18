@@ -16,6 +16,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
             $scope.getEventsArray = MdlService.getEventsList().then(function(success) {
                 $scope.eventsArray = success.events;
+                console.log(success);
             }, function(error) {
                 console.log(error);
                 console.log("Error on promise");
@@ -36,6 +37,21 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
                 $scope.eventdate = success.event.date;
                 console.log(success);
             })
+        }
+    ])
+
+
+    .controller('AddEventController', ['$scope', '$routeParams', '$location', 'MdlService', 'cookieStore',
+        function ($scope, $routeParams, $location, MdlService, $cookieStore) {
+
+            $scope.ConfirmAddEvent = function () {
+                MdlService.postEvent($scope.addeventName, $scope.addeventLeague, $scope.addeventDate, $scope.addeventDescription).then(function success (success) {
+                    alert("Evenement ajouté");
+                    console.log(success);
+                }, function error(error) {
+                    console.log(error);
+                })
+            }
         }
     ])
 
@@ -177,7 +193,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
                 if ($scope.addleagueForm.$valid) {
                     $scope.user = $cookieStore.get("Token");
                     // Console.log while waiting for REST to handle/allow the request.
-                    MdlService.postLeague($scope.user, $scope.addleagueName, $scope.addleagueMail, $scope.addleaguePhone, $scope.addleagueDescription).then(function (success) {
+                    MdlService.postLeague($scope.user, $scope.addleagueName, $scope.addleagueMail, $scope.addleaguePhone, $scope.addleagueDescription).then(function success(success) {
                         alert('Ligue créée');
                         console.log(success);
                     }, function (error) {

@@ -147,6 +147,22 @@ angular.module('mdl.service', [])
                         data: "data=" + jsonLeague,
                         token: "token=" + jsonToken
                     });
+                },
+                postEvent: function (titre, league, date, description) {
+                    var obj = {};
+                    obj.titre = titre;
+                    obj.auteur = league;
+                    obj.date = date;
+                    obj.description = description;
+
+                    var jsonObj = JSON.stringify(obj);
+
+                    return wrapped$httpPromise({
+                        method: "POST",
+                        headers: {'Content-Type': "application/x-www-form-urlencoded"},
+                        url: symfonyUrl + '/event/',
+                        data: "data=" + jsonObj
+                    });
                 }
 
                 /*getHomeData: function(){

@@ -24,7 +24,7 @@ angular.module('MDL', ['ngRoute', 'mdl.controllers', 'mdl.service','ui.bootstrap
                 controller: 'LeagueController'
             });
 
-            $routeProvider.when('/league', {
+            $routeProvider.when('/addleague', {
                 templateUrl: 'partials/add_league.html',
                 controller: 'AddLeagueController'
             });

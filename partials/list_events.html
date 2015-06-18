@@ -15,7 +15,7 @@
 
         <div class="container" ng-repeat="event in eventsArray">
             <a href="#/event/{{event.id}}"> <h2>{{event.titre}}</h2> </a>
-            <i><h4>le {{event.date.date | date:'medium'}}</h4></i>
+            <i><h4>Par la <a href="#/league/{{event.ligue.id}}">{{event.ligue.name}}</a> le {{event.date.date | date:'medium'}}</h4></i>
             <p>{{event.description}}</p>
             <br/>
             <div style="border-bottom: 1px solid #eee;"></div>

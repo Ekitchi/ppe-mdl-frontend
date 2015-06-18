@@ -13,56 +13,56 @@
 <br/>
 
 
-<form class="form-horizontal" name="addleagueForm" ng-controller="AddEventController as addevent" method="post">
+<form class="form-horizontal" name="addeventForm" ng-controller="AddEventController as addevent" method="post">
 
-    <div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.name.$dirty && addleagueForm.name.$invalid, 'has-success': addleagueForm.name.$valid}">
+    <div class="form-group has-feedback" ng-class="{'has-error': addeventForm.name.$dirty && addeventForm.name.$invalid, 'has-success': addeventForm.name.$valid}">
         <label class="col-md-2 control-label" for="name">Titre de l'évènement</label>
         <div class="col-md-2">
             <input id="name" type="text" class="form-control" name="name" ng-model="addeventName" required/>
-            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addleagueForm.name.$valid"></span>
-            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addleagueForm.name.$dirty && addleagueForm.name.$invalid"></span>
-            <span class="text-danger" ng-show="addleagueForm.name.$dirty && addleagueForm.name.$error.required">*Ce champ est obligatoire</span>
+            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addeventForm.name.$valid"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addeventForm.name.$dirty && addeventForm.name.$invalid"></span>
+            <span class="text-danger" ng-show="addeventForm.name.$dirty && addeventForm.name.$error.required">*Ce champ est obligatoire</span>
         </div>
     </div>
 
-    <div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.auteur.$dirty && addleagueForm.auteur.$invalid, 'has-success': addleagueForm.auteur.$valid}">
-        <label class="col-md-2 control-label" for="auteur">Auteur</label>
+    <div class="form-group has-feedback" ng-class="{'has-error': addeventForm.league.$dirty && addeventForm.league.$invalid, 'has-success': addeventForm.league.$valid}">
+        <label class="col-md-2 control-label" for="league">Ligue</label>
         <div class="col-md-2">
-            <input id="auteur" type="text" class="form-control" name="auteur" ng-model="addeventAuteur" required/>
-            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addleagueForm.auteur.$valid"></span>
-            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addleagueForm.auteur.$dirty && addleagueForm.auteur.$invalid"></span>
-            <span class="text-danger" ng-show="addleagueForm.auteur.$dirty && addleagueForm.auteur.$error.required">*Ce champ est obligatoire</span>
+            <input id="league" type="text" class="form-control" name="league" ng-model="addeventLeague" required/>
+            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addeventForm.league.$valid"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addeventForm.league.$dirty && addeventForm.league.$invalid"></span>
+            <span class="text-danger" ng-show="addeventForm.league.$dirty && addeventForm.league.$error.required">*Ce champ est obligatoire</span>
         </div>
     </div>
 
-    <div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.logo.$dirty && addleagueForm.logo.$invalid, 'has-success': addleagueForm.logo.$valid}">
+    <!--<div class="form-group has-feedback" ng-class="{'has-error': addeventForm.logo.$dirty && addeventForm.logo.$invalid, 'has-success': addeventForm.logo.$valid}">
         <label class="col-md-2 control-label" for="logo">Image</label>
         <div class="col-md-2">
-            <input id="logo" type="file" name="logo" ng-model="addleagueLogo" required/>
+            <input id="logo" type="file" name="logo" ng-model="addeventLogo" required/>
         </div>
-    </div>
+    </div>-->
 
-    <div class="form-group has-feedback" ng-class="{'has-error': addleagueForm.date.$dirty && addleagueForm.date.$invalid, 'has-success': addleagueForm.date.$valid}">
+    <div class="form-group has-feedback" ng-class="{'has-error': addeventForm.date.$dirty && addeventForm.date.$invalid, 'has-success': addeventForm.date.$valid}">
         <label class="col-md-2 control-label" for="date">Date</label>
         <div class="col-md-2">
             <input id="date" type="date" class="form-control" name="date" ng-model="addeventDate" required/>
-            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addleagueForm.date.$valid"></span>
-            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addleagueForm.date.$dirty && addleagueForm.date.$invalid"></span>
-            <span class="text-danger" ng-show="addleagueForm.date.$dirty && addleagueForm.date.$error.required">*Ce champ est obligatoire</span>
-            <span class="text-danger" ng-show="addleagueForm.date.$dirty && addleagueForm.date.$error.date">*Le format de la date n'est pas valide</span>
+            <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="addeventForm.date.$valid"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addeventForm.date.$dirty && addeventForm.date.$invalid"></span>
+            <span class="text-danger" ng-show="addeventForm.date.$dirty && addeventForm.date.$error.required">*Ce champ est obligatoire</span>
+            <span class="text-danger" ng-show="addeventForm.date.$dirty && addeventForm.date.$error.date">*Le format de la date n'est pas valide</span>
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-md-2 control-label" for="description">Description de l'évènement</label>
         <div class="col-md-4">
-            <textarea id="description" class="form-control" name="description" ng-model="addleagueDescription" rows="8" required></textarea>
+            <textarea id="description" class="form-control" name="description" ng-model="addeventDescription" rows="8" required></textarea>
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-9">
-            <button type="submit" class="btn btn-default" ng-click="addleagueForm.$valid && ConfirmAddLeague()">
+            <button type="submit" class="btn btn-default" ng-click="addeventForm.$valid && ConfirmAddEvent()">
                 Ajouter l'évènement
             </button>
         </div>

@@ -128,8 +128,8 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
                             console.log($cookieStore.get("User"));
                             $scope.logged = cookieService.setLoggedStatus(true);
                             // On redirige vers l'accueil et on recharge pour prendre en compte les cookies fraichement créés.
-                            $location.path('/');
                             location.reload();
+                            $location.path('/');
                         }
                     },
                     function error(error) {
@@ -169,17 +169,16 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
 
 
     .controller('AddLeagueController', ['$scope', '$routeParams', '$location', 'MdlService', '$cookieStore',
-        function ($scope, $routeParams, $location, $window, MdlService, $cookieStore) {
+        function ($scope, $routeParams, $location, MdlService, $cookieStore) {
 
 
             $scope.ConfirmAddLeague = function () {
                 if ($scope.addleagueForm.$valid) {
-                    alert('Ligue créée');
-                    $location.path('/league/1');
-                    $scope.user = $cookieStore.get(User);
+                    $scope.user = $cookieStore.get("Token");
                     // Console.log while waiting for REST to handle/allow the request.
-                    MdlService.postLeague($scope.user.id, $scope.addleagueName, $scope.addleagueMail, $scope.addleague, $scope.addleagueDescription).then(function (success) {
-                        //DOSUCCESS
+                    MdlService.postLeague($scope.user, $scope.addleagueName, $scope.addleagueMail, $scope.addleaguePhone, $scope.addleagueDescription).then(function (success) {
+                        alert('Ligue créée');
+                        console.log(success);
                     }, function (error) {
                         alert(error);
                     });
@@ -239,13 +238,27 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
     ])
 
 
-    .controller('UserController', ['$scope', '$routeParams',
-        function ($scope, $routeParams, $window) {
+    .controller('UserController', ['$scope', '$routeParams', 'MdlService',
+        function ($scope, $routeParams, MdlService) {
 
-            $scope.username = "Random";
+            $scope.userid = $routeParams.id;
+            MdlService.getUserData($scope.userid).then(function (success) {
+                var userInfo = success.user;
+                console.log(userInfo);
+                $scope.username = userInfo.name;
+                $scope.userfirstname = userInfo.first_name;
+                $scope.usermail = userInfo.email;
+                $scope.userville = userInfo.city;
+                $scope.useradresse = userInfo.address_field_1;
+                $scope.userdateofbirth = userInfo.date_of_birth.date;
+                $scope.userinfos = userInfo.description;
+            })
+
+
+            /*$scope.username = "Random";
             $scope.userfirstname = "User";
             $scope.usermail = "randomuser@ppe.fr";
-            $scope.userdateofbirth = "12/10/1293";
+            $scope.userdateofbirth = "12/10/1293";*/
 
 
         }

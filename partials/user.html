@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
-	<body ng-controller="UserController">
-		<h1 class="page-header">Profil de {{username}} {{userfirstname}}</h1>
+	<body ng-controller="UserController as user">
+		<h1 class="page-header">Profil de {{userfirstname}} {{username}}</h1>
 		<br/>
 		<br/>
 
@@ -25,8 +25,20 @@
 				<td>{{usermail}}</td>
 			</tr>
 			<tr>
+				<th>Ville:</th>
+				<td>{{userville}}</td>
+			</tr>
+			<tr>
+				<th>Adresse:</th>
+				<td>{{useradresse}}</td>
+			</tr>
+			<tr>
 				<th>Date de naissance:</th>
 				<td>{{userdateofbirth}}</td>
+			</tr>
+			<tr>
+				<th>Infos:</th>
+				<td>{{userinfos}}</td>
 			</tr>
 		</table>
 	</body>

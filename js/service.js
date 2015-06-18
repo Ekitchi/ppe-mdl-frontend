@@ -126,21 +126,26 @@ angular.module('mdl.service', [])
                         data: "data=" + jsonObj
                     });
                 },
-                postLeague: function (id_president, name, email, phoneNumber, description) {
-                    var obj = {};
-                    obj.id_president = id_president;
-                    obj.name = name;
-                    obj.email = email;
-                    obj.phoneNumber = phoneNumber;
-                    obj.description = description;
+                postLeague: function (token, name, email, phoneNumber, description) {
+                    var tokenObj = {};
+                    var league = {};
+                    tokenObj.token = token;
+                    league.name = name;
+                    league.email = email;
+                    league.phoneNumber = phoneNumber;
+                    league.description = description;
 
-                    var jsonObj = JSON.stringify(obj);
+
+                    var jsonLeague = JSON.stringify(league);
+                    var jsonToken = JSON.stringify(tokenObj);
+                    console.log(jsonLeague);
 
                     return wrapped$httpPromise({
                         method: 'POST',
                         headers: {'Content-Type': "application/x-www-form-urlencoded"},
-                        url: symfonyUrl + '/leagues/',
-                        data: "data=" + jsonObj
+                        url: symfonyUrl + '/league/',
+                        data: "data=" + jsonLeague,
+                        token: "token=" + jsonToken
                     });
                 }
 

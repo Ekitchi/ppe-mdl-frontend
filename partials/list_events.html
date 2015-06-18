@@ -12,27 +12,9 @@
         <br/>
         <br/>
 
-        <div class="col-xs-8 col-xs-offset-2">
-            <div class="input-group">
-                <input type="hidden" name="search_param" value="all" id="search_param">
-                <input type="text" class="form-control" name="x" placeholder="Rechercher Evenement">
-
-
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
-            </div>
-        </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
 
         <div class="container" ng-repeat="event in eventsArray">
-            <a href="{{event.id}}"> <h2>{{event.titre}}</h2> </a>
+            <a href="#/event/{{event.id}}"> <h2>{{event.titre}}</h2> </a>
             <i><h4>le {{event.date.date | date:'medium'}}</h4></i>
             <p>{{event.description}}</p>
             <br/>

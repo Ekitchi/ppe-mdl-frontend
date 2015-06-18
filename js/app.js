@@ -43,13 +43,17 @@ angular.module('MDL', ['ngRoute', 'mdl.controllers', 'mdl.service','ui.bootstrap
             	templateUrl: 'partials/user.html',
             	controller: 'UserController'
             });
-            $routeProvider.when('/event', {
+            $routeProvider.when('/event/:id', {
                 templateUrl: 'partials/event.html',
                 controller: 'EventController',
             });
             $routeProvider.when('/addevent', {
                 templateUrl: 'partials/addevent.html',
                 controller: 'AddEventController',
+            });
+            $routeProvider.when('/events', {
+                templateUrl: 'partials/list_events.html',
+                controller: 'ListEventsController',
             });
 
         }

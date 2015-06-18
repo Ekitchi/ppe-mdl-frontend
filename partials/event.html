@@ -6,7 +6,7 @@
         <title>League</title>
     </head>
 
-    <body ng-controller="EventController as event">
+    <body ng-controller="EventController">
 
         <div id="leaguewrapper">
             <span id="leaguename"><h1>{{eventname}}</h1></span>
@@ -18,7 +18,7 @@
             <table class="table table-responsive table-hover" id="leagueinfos">
                 <tr>
                     <th>Ligue:</th>
-                    <td><a href="#/league/{{league.id}}">{{leaguename}}</a></td>
+                    <td><a href="#/league/{{leagueid}}">{{leaguename}}</a></td>
                 </tr>
                 <tr>
                     <th>Date:</th>

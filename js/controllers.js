@@ -34,6 +34,7 @@ angular.module('mdl.controllers', ['mdl.service', 'ngCookies'])
                 $scope.eventname = success.event.titre;
                 $scope.eventdesc = success.event.description;
                 $scope.leaguename = success.event.ligue.name;
+                $scope.leagueid = success.event.ligue.id;
                 $scope.eventdate = success.event.date;
                 console.log(success);
             })
